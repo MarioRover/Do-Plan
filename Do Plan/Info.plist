@@ -2,6 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Shabnam-Bold-FD.ttf</string>
+		<string>Shabnam-Medium-FD.ttf</string>
+		<string>Shabnam-FD.ttf</string>
+		<string>Shabnam-Light-FD.ttf</string>
+		<string>Shabnam-Thin-FD.ttf</string>
+		<string>Shabnam-FD.ttf</string>
+	</array>
+	<key>CFBundleDisplayName</key>
+	<array>
+		<string></string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -22,14 +35,6 @@
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Shabnam-Bold-FD.ttf</string>
-		<string>Shabnam-FD.ttf</string>
-		<string>Shabnam-Light-FD.ttf</string>
-		<string>Shabnam-Medium-FD.ttf</string>
-		<string>Shabnam-Thin-FD.ttf</string>
-	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

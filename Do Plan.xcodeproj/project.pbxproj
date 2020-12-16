@@ -3,39 +3,33 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		8394CC772583B27D006AA9EB /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8394CC762583B27D006AA9EB /* ListController.swift */; };
 		8394CC7A2583B2A8006AA9EB /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8394CC792583B2A8006AA9EB /* SettingController.swift */; };
 		8394CC7D2583B2FF006AA9EB /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8394CC7C2583B2FF006AA9EB /* Constant.swift */; };
-		8394CC872583BE44006AA9EB /* Shabnam-Thin-FD.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8394CC822583BE44006AA9EB /* Shabnam-Thin-FD.ttf */; };
-		8394CC882583BE44006AA9EB /* Shabnam-Bold-FD.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8394CC832583BE44006AA9EB /* Shabnam-Bold-FD.ttf */; };
-		8394CC892583BE44006AA9EB /* Shabnam-Light-FD.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8394CC842583BE44006AA9EB /* Shabnam-Light-FD.ttf */; };
-		8394CC8A2583BE44006AA9EB /* Shabnam-FD.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8394CC852583BE44006AA9EB /* Shabnam-FD.ttf */; };
-		8394CC8B2583BE44006AA9EB /* Shabnam-Medium-FD.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8394CC862583BE44006AA9EB /* Shabnam-Medium-FD.ttf */; };
-		8394CC8F2583BE71006AA9EB /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8394CC8E2583BE71006AA9EB /* UIFont.swift */; };
-		8394CC9A2583C7CA006AA9EB /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 8394CC992583C7CA006AA9EB /* Realm */; };
-		8394CC9C2583C7CA006AA9EB /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8394CC9B2583C7CA006AA9EB /* RealmSwift */; };
+		83A08ED8258A814F00F8A4FD /* Shabnam-Bold-FD.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83D4039B258A77E60074E951 /* Shabnam-Bold-FD.ttf */; };
+		83A08ED9258A814F00F8A4FD /* Shabnam-FD.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83D4039E258A77E70074E951 /* Shabnam-FD.ttf */; };
+		83A08EDA258A814F00F8A4FD /* Shabnam-Light-FD.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83D4039A258A77E60074E951 /* Shabnam-Light-FD.ttf */; };
+		83A08EDB258A814F00F8A4FD /* Shabnam-Medium-FD.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83D4039D258A77E70074E951 /* Shabnam-Medium-FD.ttf */; };
+		83A08EDC258A814F00F8A4FD /* Shabnam-Thin-FD.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83D4039C258A77E60074E951 /* Shabnam-Thin-FD.ttf */; };
 		83BBE1E425833F62006C4502 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BBE1E325833F62006C4502 /* AppDelegate.swift */; };
 		83BBE1E625833F62006C4502 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BBE1E525833F62006C4502 /* SceneDelegate.swift */; };
 		83BBE1E825833F62006C4502 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BBE1E725833F62006C4502 /* HomeController.swift */; };
 		83BBE1EB25833F62006C4502 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83BBE1E925833F62006C4502 /* Main.storyboard */; };
 		83BBE1ED25833F64006C4502 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83BBE1EC25833F64006C4502 /* Assets.xcassets */; };
 		83BBE1F025833F64006C4502 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83BBE1EE25833F64006C4502 /* LaunchScreen.storyboard */; };
+		83D40394258A77510074E951 /* Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D40393258A77510074E951 /* Extenstion.swift */; };
+		B56399EEBA70ADB3B4AB3F9D /* Pods_Do_Plan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F52F692CB36CF22FFCDFA31B /* Pods_Do_Plan.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		28DEE2808BE137B1FB872F5F /* Pods-Do Plan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Do Plan.release.xcconfig"; path = "Target Support Files/Pods-Do Plan/Pods-Do Plan.release.xcconfig"; sourceTree = "<group>"; };
 		8394CC762583B27D006AA9EB /* ListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
 		8394CC792583B2A8006AA9EB /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
 		8394CC7C2583B2FF006AA9EB /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
-		8394CC822583BE44006AA9EB /* Shabnam-Thin-FD.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Shabnam-Thin-FD.ttf"; path = "../../../Sarraf/Fonts/Shabnam-Thin-FD.ttf"; sourceTree = "<group>"; };
-		8394CC832583BE44006AA9EB /* Shabnam-Bold-FD.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Shabnam-Bold-FD.ttf"; path = "../../../Sarraf/Fonts/Shabnam-Bold-FD.ttf"; sourceTree = "<group>"; };
-		8394CC842583BE44006AA9EB /* Shabnam-Light-FD.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Shabnam-Light-FD.ttf"; path = "../../../Sarraf/Fonts/Shabnam-Light-FD.ttf"; sourceTree = "<group>"; };
-		8394CC852583BE44006AA9EB /* Shabnam-FD.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Shabnam-FD.ttf"; path = "../../../Sarraf/Fonts/Shabnam-FD.ttf"; sourceTree = "<group>"; };
-		8394CC862583BE44006AA9EB /* Shabnam-Medium-FD.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Shabnam-Medium-FD.ttf"; path = "../../../Sarraf/Fonts/Shabnam-Medium-FD.ttf"; sourceTree = "<group>"; };
-		8394CC8E2583BE71006AA9EB /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		83BBE1E025833F62006C4502 /* Do Plan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Do Plan.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83BBE1E325833F62006C4502 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83BBE1E525833F62006C4502 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +38,14 @@
 		83BBE1EC25833F64006C4502 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		83BBE1EF25833F64006C4502 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83BBE1F125833F64006C4502 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83D40393258A77510074E951 /* Extenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extenstion.swift; sourceTree = "<group>"; };
+		83D4039A258A77E60074E951 /* Shabnam-Light-FD.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Shabnam-Light-FD.ttf"; sourceTree = "<group>"; };
+		83D4039B258A77E60074E951 /* Shabnam-Bold-FD.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Shabnam-Bold-FD.ttf"; sourceTree = "<group>"; };
+		83D4039C258A77E60074E951 /* Shabnam-Thin-FD.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Shabnam-Thin-FD.ttf"; sourceTree = "<group>"; };
+		83D4039D258A77E70074E951 /* Shabnam-Medium-FD.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Shabnam-Medium-FD.ttf"; sourceTree = "<group>"; };
+		83D4039E258A77E70074E951 /* Shabnam-FD.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Shabnam-FD.ttf"; sourceTree = "<group>"; };
+		F52F692CB36CF22FFCDFA31B /* Pods_Do_Plan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Do_Plan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCDC560D330401BEC815516F /* Pods-Do Plan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Do Plan.debug.xcconfig"; path = "Target Support Files/Pods-Do Plan/Pods-Do Plan.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,32 +53,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8394CC9C2583C7CA006AA9EB /* RealmSwift in Frameworks */,
-				8394CC9A2583C7CA006AA9EB /* Realm in Frameworks */,
+				B56399EEBA70ADB3B4AB3F9D /* Pods_Do_Plan.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2EDED621A4CAD2FA7708D95A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FCDC560D330401BEC815516F /* Pods-Do Plan.debug.xcconfig */,
+				28DEE2808BE137B1FB872F5F /* Pods-Do Plan.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		8394CC812583BE13006AA9EB /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				8394CC832583BE44006AA9EB /* Shabnam-Bold-FD.ttf */,
-				8394CC852583BE44006AA9EB /* Shabnam-FD.ttf */,
-				8394CC842583BE44006AA9EB /* Shabnam-Light-FD.ttf */,
-				8394CC862583BE44006AA9EB /* Shabnam-Medium-FD.ttf */,
-				8394CC822583BE44006AA9EB /* Shabnam-Thin-FD.ttf */,
+				83D40399258A77E50074E951 /* Shabnam */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		8394CC8D2583BE4E006AA9EB /* Extenstion */ = {
+		8394CCA825891D68006AA9EB /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				8394CC8E2583BE71006AA9EB /* UIFont.swift */,
 			);
-			path = Extenstion;
+			path = Component;
 			sourceTree = "<group>";
 		};
 		83BBE1D725833F62006C4502 = {
@@ -84,6 +89,8 @@
 			children = (
 				83BBE1E225833F62006C4502 /* Do Plan */,
 				83BBE1E125833F62006C4502 /* Products */,
+				2EDED621A4CAD2FA7708D95A /* Pods */,
+				A9621631780A0EAD9ADC4684 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,12 +107,11 @@
 			children = (
 				83BBE1E325833F62006C4502 /* AppDelegate.swift */,
 				83BBE1E525833F62006C4502 /* SceneDelegate.swift */,
-				8394CC7C2583B2FF006AA9EB /* Constant.swift */,
 				83BBE1FA25833FC5006C4502 /* Controller */,
 				83BBE1F925833FB0006C4502 /* View */,
 				83BBE1F825833FA8006C4502 /* Model */,
+				83D40398258A77B10074E951 /* Extra */,
 				8394CC812583BE13006AA9EB /* Fonts */,
-				8394CC8D2583BE4E006AA9EB /* Extenstion */,
 				83BBE1EC25833F64006C4502 /* Assets.xcassets */,
 				83BBE1F125833F64006C4502 /* Info.plist */,
 			);
@@ -131,11 +137,41 @@
 		83BBE1FA25833FC5006C4502 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8394CCA825891D68006AA9EB /* Component */,
 				83BBE1E725833F62006C4502 /* HomeController.swift */,
 				8394CC762583B27D006AA9EB /* ListController.swift */,
 				8394CC792583B2A8006AA9EB /* SettingController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		83D40398258A77B10074E951 /* Extra */ = {
+			isa = PBXGroup;
+			children = (
+				8394CC7C2583B2FF006AA9EB /* Constant.swift */,
+				83D40393258A77510074E951 /* Extenstion.swift */,
+			);
+			path = Extra;
+			sourceTree = "<group>";
+		};
+		83D40399258A77E50074E951 /* Shabnam */ = {
+			isa = PBXGroup;
+			children = (
+				83D4039B258A77E60074E951 /* Shabnam-Bold-FD.ttf */,
+				83D4039E258A77E70074E951 /* Shabnam-FD.ttf */,
+				83D4039A258A77E60074E951 /* Shabnam-Light-FD.ttf */,
+				83D4039D258A77E70074E951 /* Shabnam-Medium-FD.ttf */,
+				83D4039C258A77E60074E951 /* Shabnam-Thin-FD.ttf */,
+			);
+			path = Shabnam;
+			sourceTree = "<group>";
+		};
+		A9621631780A0EAD9ADC4684 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F52F692CB36CF22FFCDFA31B /* Pods_Do_Plan.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,19 +181,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 83BBE1F425833F64006C4502 /* Build configuration list for PBXNativeTarget "Do Plan" */;
 			buildPhases = (
+				3D5627A645593AA322ADEB32 /* [CP] Check Pods Manifest.lock */,
 				83BBE1DC25833F62006C4502 /* Sources */,
 				83BBE1DD25833F62006C4502 /* Frameworks */,
 				83BBE1DE25833F62006C4502 /* Resources */,
+				118D1D3C8133E937516A806E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Do Plan";
-			packageProductDependencies = (
-				8394CC992583C7CA006AA9EB /* Realm */,
-				8394CC9B2583C7CA006AA9EB /* RealmSwift */,
-			);
 			productName = "Do Plan";
 			productReference = 83BBE1E025833F62006C4502 /* Do Plan.app */;
 			productType = "com.apple.product-type.application";
@@ -185,9 +219,6 @@
 				Base,
 			);
 			mainGroup = 83BBE1D725833F62006C4502;
-			packageReferences = (
-				8394CC982583C7CA006AA9EB /* XCRemoteSwiftPackageReference "realm-cocoa" */,
-			);
 			productRefGroup = 83BBE1E125833F62006C4502 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -202,18 +233,60 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8394CC8B2583BE44006AA9EB /* Shabnam-Medium-FD.ttf in Resources */,
-				8394CC872583BE44006AA9EB /* Shabnam-Thin-FD.ttf in Resources */,
+				83A08ED8258A814F00F8A4FD /* Shabnam-Bold-FD.ttf in Resources */,
+				83A08ED9258A814F00F8A4FD /* Shabnam-FD.ttf in Resources */,
+				83A08EDA258A814F00F8A4FD /* Shabnam-Light-FD.ttf in Resources */,
+				83A08EDB258A814F00F8A4FD /* Shabnam-Medium-FD.ttf in Resources */,
+				83A08EDC258A814F00F8A4FD /* Shabnam-Thin-FD.ttf in Resources */,
 				83BBE1F025833F64006C4502 /* LaunchScreen.storyboard in Resources */,
-				8394CC892583BE44006AA9EB /* Shabnam-Light-FD.ttf in Resources */,
-				8394CC8A2583BE44006AA9EB /* Shabnam-FD.ttf in Resources */,
 				83BBE1ED25833F64006C4502 /* Assets.xcassets in Resources */,
-				8394CC882583BE44006AA9EB /* Shabnam-Bold-FD.ttf in Resources */,
 				83BBE1EB25833F62006C4502 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		118D1D3C8133E937516A806E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Do Plan/Pods-Do Plan-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Do Plan/Pods-Do Plan-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Do Plan/Pods-Do Plan-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3D5627A645593AA322ADEB32 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Do Plan-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		83BBE1DC25833F62006C4502 /* Sources */ = {
@@ -223,9 +296,9 @@
 				8394CC7A2583B2A8006AA9EB /* SettingController.swift in Sources */,
 				83BBE1E825833F62006C4502 /* HomeController.swift in Sources */,
 				83BBE1E425833F62006C4502 /* AppDelegate.swift in Sources */,
-				8394CC8F2583BE71006AA9EB /* UIFont.swift in Sources */,
 				83BBE1E625833F62006C4502 /* SceneDelegate.swift in Sources */,
 				8394CC772583B27D006AA9EB /* ListController.swift in Sources */,
+				83D40394258A77510074E951 /* Extenstion.swift in Sources */,
 				8394CC7D2583B2FF006AA9EB /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,6 +443,7 @@
 		};
 		83BBE1F525833F64006C4502 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FCDC560D330401BEC815516F /* Pods-Do Plan.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -389,6 +463,7 @@
 		};
 		83BBE1F625833F64006C4502 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28DEE2808BE137B1FB872F5F /* Pods-Do Plan.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -428,30 +503,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		8394CC982583C7CA006AA9EB /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/realm-cocoa.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 10.4.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		8394CC992583C7CA006AA9EB /* Realm */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8394CC982583C7CA006AA9EB /* XCRemoteSwiftPackageReference "realm-cocoa" */;
-			productName = Realm;
-		};
-		8394CC9B2583C7CA006AA9EB /* RealmSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8394CC982583C7CA006AA9EB /* XCRemoteSwiftPackageReference "realm-cocoa" */;
-			productName = RealmSwift;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 83BBE1D825833F62006C4502 /* Project object */;
 }

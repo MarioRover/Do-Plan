@@ -8,16 +8,15 @@
 import UIKit
 
 class HomeController: UIViewController {
-
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         UITabBarItem.appearance()
             .setTitleTextAttributes([NSAttributedString.Key.font : UIFont.shabnam(size: 11, weight: .bold)], for: .normal)
+
     }
     
-    
-
-
 }
-
