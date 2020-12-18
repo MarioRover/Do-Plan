@@ -7,6 +7,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Shabnam-Bold-FD.ttf">
+            <string>Shabnam-Bold-FD</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--List-->
         <scene sceneID="FXk-9s-v1y">
@@ -15,14 +20,111 @@
                     <view key="view" contentMode="scaleToFill" id="qaQ-M0-xmL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fes-XK-Bzm" userLabel="Container">
+                                <rect key="frame" x="13" y="44" width="388" height="769"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6U-XV-nLR">
+                                        <rect key="frame" x="0.0" y="0.0" width="97" height="29.5"/>
+                                        <fontDescription key="fontDescription" name="Shabnam-Bold-FD" family="Shabnam FD" pointSize="25"/>
+                                        <color key="textColor" name="AccentColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <searchBar contentMode="redraw" barStyle="black" searchBarStyle="minimal" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="USe-MF-6WT" customClass="CustomSearchBar" customModule="Do_Plan" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="29.5" width="388" height="56"/>
+                                        <color key="barTintColor" name="AccentColor"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="iconTint">
+                                                <color key="value" name="AccentColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </searchBar>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WLF-nj-2bh">
+                                        <rect key="frame" x="0.0" y="106.5" width="388" height="662.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" id="vRm-Ed-Y6E" customClass="CategoryCell" customModule="Do_Plan" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="388" height="43.5"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vRm-Ed-Y6E" id="pQi-kX-q9J">
+                                                    <rect key="frame" x="0.0" y="0.0" width="388" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="Dgc-eE-ziM" id="Hga-ia-Y1y"/>
+                                            <outlet property="delegate" destination="Dgc-eE-ziM" id="HUo-5B-6ra"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="WLF-nj-2bh" secondAttribute="bottom" id="306-mP-DDK"/>
+                                    <constraint firstItem="USe-MF-6WT" firstAttribute="top" secondItem="e6U-XV-nLR" secondAttribute="bottom" id="7JU-cO-2dX"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="e6U-XV-nLR" secondAttribute="trailing" constant="20" symbolic="YES" id="9N8-jg-GcR"/>
+                                    <constraint firstItem="e6U-XV-nLR" firstAttribute="leading" secondItem="Fes-XK-Bzm" secondAttribute="leading" id="EA8-Jc-ZUQ"/>
+                                    <constraint firstItem="WLF-nj-2bh" firstAttribute="leading" secondItem="Fes-XK-Bzm" secondAttribute="leading" id="Ehp-Um-wiy"/>
+                                    <constraint firstAttribute="trailing" secondItem="USe-MF-6WT" secondAttribute="trailing" id="H8g-Ko-obV"/>
+                                    <constraint firstAttribute="trailing" secondItem="WLF-nj-2bh" secondAttribute="trailing" id="Oce-JI-q1q"/>
+                                    <constraint firstItem="e6U-XV-nLR" firstAttribute="top" secondItem="Fes-XK-Bzm" secondAttribute="top" id="UOe-vN-v5m"/>
+                                    <constraint firstItem="USe-MF-6WT" firstAttribute="leading" secondItem="Fes-XK-Bzm" secondAttribute="leading" id="hJq-k9-iaA"/>
+                                    <constraint firstItem="WLF-nj-2bh" firstAttribute="top" secondItem="USe-MF-6WT" secondAttribute="bottom" constant="21" id="v5F-th-7xe"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bfs-zv-JZW" userLabel="AddButton" customClass="CustomUIView" customModule="Do_Plan" customModuleProvider="target">
+                                <rect key="frame" x="335" y="734" width="55" height="55"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xml-5k-42x">
+                                        <rect key="frame" x="15" y="14.5" width="25" height="26"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="ImK-AT-vYY"/>
+                                            <constraint firstAttribute="width" constant="25" id="gJr-PU-NGL"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" name="Main"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="QJa-5x-Dya"/>
+                                    <constraint firstItem="xml-5k-42x" firstAttribute="centerY" secondItem="Bfs-zv-JZW" secondAttribute="centerY" id="dab-s4-5Qv"/>
+                                    <constraint firstAttribute="width" constant="55" id="gsF-WU-7T9"/>
+                                    <constraint firstItem="xml-5k-42x" firstAttribute="centerX" secondItem="Bfs-zv-JZW" secondAttribute="centerX" id="lYI-H8-vP8"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="roundedView" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="QK4-wB-cOu" appends="YES" id="FAf-Wn-22k"/>
+                                </connections>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="4ek-cg-lwH"/>
                         <color key="backgroundColor" name="MiddleDark"/>
+                        <constraints>
+                            <constraint firstItem="4ek-cg-lwH" firstAttribute="bottom" secondItem="Bfs-zv-JZW" secondAttribute="bottom" constant="24" id="Dgy-K6-F4Y"/>
+                            <constraint firstItem="4ek-cg-lwH" firstAttribute="trailing" secondItem="Bfs-zv-JZW" secondAttribute="trailing" constant="24" id="Vpy-xg-EQ6"/>
+                            <constraint firstAttribute="trailing" secondItem="Fes-XK-Bzm" secondAttribute="trailing" constant="13" id="dgm-lk-6OU"/>
+                            <constraint firstItem="Fes-XK-Bzm" firstAttribute="leading" secondItem="qaQ-M0-xmL" secondAttribute="leading" constant="13" id="gly-iK-AUL"/>
+                            <constraint firstItem="4ek-cg-lwH" firstAttribute="bottom" secondItem="Fes-XK-Bzm" secondAttribute="bottom" id="hf5-3T-YQJ"/>
+                            <constraint firstItem="Fes-XK-Bzm" firstAttribute="top" secondItem="4ek-cg-lwH" secondAttribute="top" id="sKM-7d-aTp"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="List" image="checkmark.seal.fill" catalog="system" id="0Oh-IA-y8Q"/>
+                    <connections>
+                        <outlet property="tableView" destination="WLF-nj-2bh" id="4nW-9I-0py"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WnK-SP-CQH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="QK4-wB-cOu" userLabel="Add button pressed">
+                    <connections>
+                        <action selector="addButtonPressed:" destination="Dgc-eE-ziM" id="pkc-qq-xNo"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1991" y="779"/>
+            <point key="canvasLocation" x="-1991.3043478260872" y="778.79464285714278"/>
         </scene>
         <!--Home-->
         <scene sceneID="Z1C-vX-Rr7">
@@ -398,6 +500,9 @@
         <designable name="IKo-qE-4s1">
             <size key="intrinsicContentSize" width="-1" height="56"/>
         </designable>
+        <designable name="USe-MF-6WT">
+            <size key="intrinsicContentSize" width="-1" height="56"/>
+        </designable>
     </designables>
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>
@@ -405,6 +510,7 @@
         <image name="checkmark.seal.fill" catalog="system" width="128" height="128"/>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="tray.full.fill" catalog="system" width="128" height="88"/>
         <namedColor name="AccentColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

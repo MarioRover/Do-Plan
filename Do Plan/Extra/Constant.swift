@@ -14,4 +14,8 @@ struct Constant {
         static let main       = "Main"
         static let grayWhite  = "GrayWhite"
     }
+    
+    struct Identifier {
+        static let categoryCell = "CategoryCell"
+    }
 }
