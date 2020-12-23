@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		83258B9D258CFF700017A08F /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83258B9B258CFF700017A08F /* CategoryCell.swift */; };
 		83258B9E258CFF700017A08F /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83258B9C258CFF700017A08F /* CategoryCell.xib */; };
-		83258BBA258D17EA0017A08F /* PresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83258BB9258D17EA0017A08F /* PresentationController.swift */; };
-		83258BBF258D184D0017A08F /* NewListModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83258BBD258D184D0017A08F /* NewListModal.swift */; };
-		83258BC0258D184D0017A08F /* NewListModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83258BBE258D184D0017A08F /* NewListModal.xib */; };
+		83258BC8258E745D0017A08F /* NewListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83258BC7258E745D0017A08F /* NewListController.swift */; };
+		83258BCB25937A6E0017A08F /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83258BCA25937A6E0017A08F /* List.swift */; };
+		83258BCE25937A800017A08F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83258BCD25937A800017A08F /* Item.swift */; };
 		8394CC772583B27D006AA9EB /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8394CC762583B27D006AA9EB /* ListController.swift */; };
 		8394CC7A2583B2A8006AA9EB /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8394CC792583B2A8006AA9EB /* SettingController.swift */; };
 		8394CC7D2583B2FF006AA9EB /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8394CC7C2583B2FF006AA9EB /* Constant.swift */; };
@@ -34,9 +34,9 @@
 		28DEE2808BE137B1FB872F5F /* Pods-Do Plan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Do Plan.release.xcconfig"; path = "Target Support Files/Pods-Do Plan/Pods-Do Plan.release.xcconfig"; sourceTree = "<group>"; };
 		83258B9B258CFF700017A08F /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		83258B9C258CFF700017A08F /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
-		83258BB9258D17EA0017A08F /* PresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationController.swift; sourceTree = "<group>"; };
-		83258BBD258D184D0017A08F /* NewListModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListModal.swift; sourceTree = "<group>"; };
-		83258BBE258D184D0017A08F /* NewListModal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewListModal.xib; sourceTree = "<group>"; };
+		83258BC7258E745D0017A08F /* NewListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListController.swift; sourceTree = "<group>"; };
+		83258BCA25937A6E0017A08F /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		83258BCD25937A800017A08F /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		8394CC762583B27D006AA9EB /* ListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
 		8394CC792583B2A8006AA9EB /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
 		8394CC7C2583B2FF006AA9EB /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -88,15 +88,6 @@
 			path = CategoryCell;
 			sourceTree = "<group>";
 		};
-		83258BBC258D181F0017A08F /* NewListModal */ = {
-			isa = PBXGroup;
-			children = (
-				83258BBD258D184D0017A08F /* NewListModal.swift */,
-				83258BBE258D184D0017A08F /* NewListModal.xib */,
-			);
-			path = NewListModal;
-			sourceTree = "<group>";
-		};
 		8394CC812583BE13006AA9EB /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,7 +99,6 @@
 		8394CCA825891D68006AA9EB /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				83258BBC258D181F0017A08F /* NewListModal */,
 				83258B9A258CFF4D0017A08F /* CategoryCell */,
 			);
 			path = Component;
@@ -151,6 +141,8 @@
 		83BBE1F825833FA8006C4502 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				83258BCA25937A6E0017A08F /* List.swift */,
+				83258BCD25937A800017A08F /* Item.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -171,6 +163,7 @@
 				83BBE1E725833F62006C4502 /* HomeController.swift */,
 				8394CC762583B27D006AA9EB /* ListController.swift */,
 				8394CC792583B2A8006AA9EB /* SettingController.swift */,
+				83258BC7258E745D0017A08F /* NewListController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -180,7 +173,6 @@
 			children = (
 				8394CC7C2583B2FF006AA9EB /* Constant.swift */,
 				83D40393258A77510074E951 /* Extenstion.swift */,
-				83258BB9258D17EA0017A08F /* PresentationController.swift */,
 			);
 			path = Extra;
 			sourceTree = "<group>";
@@ -267,7 +259,6 @@
 				83A08ED8258A814F00F8A4FD /* Shabnam-Bold-FD.ttf in Resources */,
 				83A08ED9258A814F00F8A4FD /* Shabnam-FD.ttf in Resources */,
 				83A08EDA258A814F00F8A4FD /* Shabnam-Light-FD.ttf in Resources */,
-				83258BC0258D184D0017A08F /* NewListModal.xib in Resources */,
 				83258B9E258CFF700017A08F /* CategoryCell.xib in Resources */,
 				83A08EDB258A814F00F8A4FD /* Shabnam-Medium-FD.ttf in Resources */,
 				83A08EDC258A814F00F8A4FD /* Shabnam-Thin-FD.ttf in Resources */,
@@ -326,12 +317,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83258BBF258D184D0017A08F /* NewListModal.swift in Sources */,
 				8394CC7A2583B2A8006AA9EB /* SettingController.swift in Sources */,
+				83258BC8258E745D0017A08F /* NewListController.swift in Sources */,
 				83BBE1E825833F62006C4502 /* HomeController.swift in Sources */,
-				83258BBA258D17EA0017A08F /* PresentationController.swift in Sources */,
+				83258BCB25937A6E0017A08F /* List.swift in Sources */,
 				83BBE1E425833F62006C4502 /* AppDelegate.swift in Sources */,
 				83258B9D258CFF700017A08F /* CategoryCell.swift in Sources */,
+				83258BCE25937A800017A08F /* Item.swift in Sources */,
 				83BBE1E625833F62006C4502 /* SceneDelegate.swift in Sources */,
 				8394CC772583B27D006AA9EB /* ListController.swift in Sources */,
 				83D40394258A77510074E951 /* Extenstion.swift in Sources */,

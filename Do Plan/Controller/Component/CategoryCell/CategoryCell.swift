@@ -10,12 +10,12 @@ import UIKit
 class CategoryCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var numberItems: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        numberItems.isHidden = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

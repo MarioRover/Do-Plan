@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -115,6 +116,7 @@
                     <tabBarItem key="tabBarItem" title="List" image="checkmark.seal.fill" catalog="system" id="0Oh-IA-y8Q"/>
                     <connections>
                         <outlet property="tableView" destination="WLF-nj-2bh" id="4nW-9I-0py"/>
+                        <segue destination="fpo-cj-qjz" kind="show" identifier="NewListSegue" id="jvB-i2-Oui"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WnK-SP-CQH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -125,6 +127,96 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1991.3043478260872" y="778.79464285714278"/>
+        </scene>
+        <!--New List-->
+        <scene sceneID="PmS-Li-Mjk">
+            <objects>
+                <viewController id="fpo-cj-qjz" userLabel="New List" customClass="NewListController" customModule="Do_Plan" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Nwi-KD-qAB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1rL-dj-EAT" userLabel="Container">
+                                <rect key="frame" x="24" y="24" width="366" height="760"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="Zsg-77-SLA">
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="32"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d0O-jA-Jhx">
+                                                <rect key="frame" x="0.0" y="0.0" width="52" height="32"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                <state key="normal" title="Cancel">
+                                                    <color key="titleColor" name="Main"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="cancelPressed:" destination="fpo-cj-qjz" eventType="touchUpInside" id="TnQ-Y2-ver"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jaT-t8-qWK">
+                                                <rect key="frame" x="150" y="0.0" width="72.5" height="32"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2MR-Ua-dpX">
+                                                <rect key="frame" x="326" y="0.0" width="40" height="32"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                <state key="normal" title="Done">
+                                                    <color key="titleColor" name="Main"/>
+                                                </state>
+                                                <state key="disabled">
+                                                    <color key="titleColor" name="GrayDesc"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="donePressed:" destination="fpo-cj-qjz" eventType="touchUpInside" id="mJp-yD-zXK"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Lp-zJ-9L8">
+                                        <rect key="frame" x="0.0" y="135" width="366" height="54"/>
+                                        <color key="backgroundColor" name="GrayWhite"/>
+                                        <color key="tintColor" systemColor="systemBlueColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="54" id="wVx-wl-Uw7"/>
+                                        </constraints>
+                                        <color key="textColor" systemColor="systemBlueColor"/>
+                                        <fontDescription key="fontDescription" name="Shabnam-Bold-FD" family="Shabnam FD" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="name"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="fpo-cj-qjz" id="e5U-B8-TC1"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="9Lp-zJ-9L8" firstAttribute="leading" secondItem="1rL-dj-EAT" secondAttribute="leading" id="EQa-Pn-R6z"/>
+                                    <constraint firstItem="Zsg-77-SLA" firstAttribute="top" secondItem="1rL-dj-EAT" secondAttribute="top" id="R4p-02-bti"/>
+                                    <constraint firstAttribute="trailing" secondItem="9Lp-zJ-9L8" secondAttribute="trailing" id="g6k-UF-lg7"/>
+                                    <constraint firstAttribute="trailing" secondItem="Zsg-77-SLA" secondAttribute="trailing" id="kac-T6-lh1"/>
+                                    <constraint firstItem="9Lp-zJ-9L8" firstAttribute="top" secondItem="Zsg-77-SLA" secondAttribute="bottom" constant="103" id="mYC-UT-VMH"/>
+                                    <constraint firstItem="Zsg-77-SLA" firstAttribute="leading" secondItem="1rL-dj-EAT" secondAttribute="leading" id="phc-Cs-VzG"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Yh7-Be-jrw"/>
+                        <color key="backgroundColor" name="MiddleDark"/>
+                        <constraints>
+                            <constraint firstItem="1rL-dj-EAT" firstAttribute="top" secondItem="Yh7-Be-jrw" secondAttribute="top" constant="24" id="0db-cH-THk"/>
+                            <constraint firstItem="Yh7-Be-jrw" firstAttribute="bottom" secondItem="1rL-dj-EAT" secondAttribute="bottom" constant="24" id="Koo-7O-oF1"/>
+                            <constraint firstItem="1rL-dj-EAT" firstAttribute="leading" secondItem="Yh7-Be-jrw" secondAttribute="leading" constant="24" id="LDX-FK-Jlz"/>
+                            <constraint firstItem="Yh7-Be-jrw" firstAttribute="trailing" secondItem="1rL-dj-EAT" secondAttribute="trailing" constant="24" id="ccN-zd-XnK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="UJg-7P-11E"/>
+                    <connections>
+                        <outlet property="doneButton" destination="2MR-Ua-dpX" id="87Y-L3-qaP"/>
+                        <outlet property="textField" destination="9Lp-zJ-9L8" id="qom-UX-PTU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GNw-vm-jLS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1991" y="1497"/>
         </scene>
         <!--Home-->
         <scene sceneID="Z1C-vX-Rr7">
@@ -518,11 +610,20 @@
         <namedColor name="GrayDark">
             <color red="0.27099999785423279" green="0.27500000596046448" blue="0.27799999713897705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="GrayDesc">
+            <color red="0.59600001573562622" green="0.59600001573562622" blue="0.61599999666213989" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GrayWhite">
+            <color red="0.84700000286102295" green="0.84700000286102295" blue="0.84700000286102295" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Main">
             <color red="1" green="0.9179999828338623" blue="0.65499997138977051" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="MiddleDark">
             <color red="0.125" green="0.13300000131130219" blue="0.14499999582767487" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
