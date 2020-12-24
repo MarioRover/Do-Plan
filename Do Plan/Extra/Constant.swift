@@ -19,5 +19,6 @@ struct Constant {
     struct Identifier {
         static let categoryCell = "CategoryCell"
         static let newListSegue = "NewListSegue"
+        static let itemsSegue   = "ItemsSegue"
     }
 }

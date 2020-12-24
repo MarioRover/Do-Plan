@@ -72,18 +72,17 @@ extension ListController: UITableViewDelegate, UITableViewDataSource {
          
         cell.titleLabel.text  = listArray?[indexPath.row].name
         cell.numberItems.text = "0"
-        
-//        let thickness: CGFloat = 7.0
-//        let bottomBorder = CALayer()
-//        bottomBorder.frame = CGRect(x:0, y: cell.frame.size.height - thickness, width: cell.frame.size.width, height:thickness)
-//        bottomBorder.backgroundColor = UIColor(named: Constant.Color.middleDark)?.cgColor
-//        cell.layer.addSublayer(bottomBorder)
-        
+            
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 55
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // TODO: - send data to controller
+        performSegue(withIdentifier: Constant.Identifier.itemsSegue, sender: self)
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

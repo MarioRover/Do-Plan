@@ -104,7 +104,7 @@ extension UIFont {
 
 @IBDesignable class CustomSearchBar: UISearchBar {
     
-    @IBInspectable var iconTint: UIColor = .white {
+    @IBInspectable var iconTint: UIColor? {
         didSet {
             self.searchTextField.leftView?.tintColor = iconTint
         }
