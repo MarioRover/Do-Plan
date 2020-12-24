@@ -14,8 +14,6 @@ class CategoryCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        numberItems.isHidden = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

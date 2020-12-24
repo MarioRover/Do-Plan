@@ -26,30 +26,21 @@
                                 <rect key="frame" x="13" y="44" width="388" height="769"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6U-XV-nLR">
-                                        <rect key="frame" x="0.0" y="0.0" width="97" height="29.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="100.5" height="34.5"/>
                                         <fontDescription key="fontDescription" name="Shabnam-Bold-FD" family="Shabnam FD" pointSize="25"/>
                                         <color key="textColor" name="AccentColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <searchBar contentMode="redraw" barStyle="black" searchBarStyle="minimal" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="USe-MF-6WT" customClass="CustomSearchBar" customModule="Do_Plan" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="29.5" width="388" height="56"/>
-                                        <color key="barTintColor" name="AccentColor"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="iconTint">
-                                                <color key="value" name="AccentColor"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </searchBar>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WLF-nj-2bh">
-                                        <rect key="frame" x="0.0" y="106.5" width="388" height="662.5"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WLF-nj-2bh">
+                                        <rect key="frame" x="0.0" y="54.5" width="388" height="714.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="separatorColor" name="GrayDesc"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" id="vRm-Ed-Y6E" customClass="CategoryCell" customModule="Do_Plan" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="388" height="43.5"/>
+                                                <rect key="frame" x="0.0" y="28" width="388" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vRm-Ed-Y6E" id="pQi-kX-q9J">
-                                                    <rect key="frame" x="0.0" y="0.0" width="388" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="388" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </tableViewCellContentView>
                                             </tableViewCell>
@@ -63,15 +54,12 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="WLF-nj-2bh" secondAttribute="bottom" id="306-mP-DDK"/>
-                                    <constraint firstItem="USe-MF-6WT" firstAttribute="top" secondItem="e6U-XV-nLR" secondAttribute="bottom" id="7JU-cO-2dX"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="e6U-XV-nLR" secondAttribute="trailing" constant="20" symbolic="YES" id="9N8-jg-GcR"/>
                                     <constraint firstItem="e6U-XV-nLR" firstAttribute="leading" secondItem="Fes-XK-Bzm" secondAttribute="leading" id="EA8-Jc-ZUQ"/>
                                     <constraint firstItem="WLF-nj-2bh" firstAttribute="leading" secondItem="Fes-XK-Bzm" secondAttribute="leading" id="Ehp-Um-wiy"/>
-                                    <constraint firstAttribute="trailing" secondItem="USe-MF-6WT" secondAttribute="trailing" id="H8g-Ko-obV"/>
                                     <constraint firstAttribute="trailing" secondItem="WLF-nj-2bh" secondAttribute="trailing" id="Oce-JI-q1q"/>
                                     <constraint firstItem="e6U-XV-nLR" firstAttribute="top" secondItem="Fes-XK-Bzm" secondAttribute="top" id="UOe-vN-v5m"/>
-                                    <constraint firstItem="USe-MF-6WT" firstAttribute="leading" secondItem="Fes-XK-Bzm" secondAttribute="leading" id="hJq-k9-iaA"/>
-                                    <constraint firstItem="WLF-nj-2bh" firstAttribute="top" secondItem="USe-MF-6WT" secondAttribute="bottom" constant="21" id="v5F-th-7xe"/>
+                                    <constraint firstItem="WLF-nj-2bh" firstAttribute="top" secondItem="e6U-XV-nLR" secondAttribute="bottom" constant="20" id="cSX-3p-iRx"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bfs-zv-JZW" userLabel="AddButton" customClass="CustomUIView" customModule="Do_Plan" customModuleProvider="target">
@@ -133,7 +121,7 @@
             <objects>
                 <viewController id="fpo-cj-qjz" userLabel="New List" customClass="NewListController" customModule="Do_Plan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nwi-KD-qAB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1rL-dj-EAT" userLabel="Container">
@@ -173,7 +161,7 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Lp-zJ-9L8">
+                                    <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Lp-zJ-9L8">
                                         <rect key="frame" x="0.0" y="135" width="366" height="54"/>
                                         <color key="backgroundColor" name="GrayWhite"/>
                                         <color key="tintColor" systemColor="systemBlueColor"/>
@@ -182,7 +170,7 @@
                                         </constraints>
                                         <color key="textColor" systemColor="systemBlueColor"/>
                                         <fontDescription key="fontDescription" name="Shabnam-Bold-FD" family="Shabnam FD" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="name"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" spellCheckingType="no" returnKeyType="done" textContentType="name"/>
                                         <connections>
                                             <outlet property="delegate" destination="fpo-cj-qjz" id="e5U-B8-TC1"/>
                                         </connections>
@@ -211,12 +199,13 @@
                     <navigationItem key="navigationItem" id="UJg-7P-11E"/>
                     <connections>
                         <outlet property="doneButton" destination="2MR-Ua-dpX" id="87Y-L3-qaP"/>
+                        <outlet property="pageTitleLabel" destination="jaT-t8-qWK" id="cuF-V6-WZW"/>
                         <outlet property="textField" destination="9Lp-zJ-9L8" id="qom-UX-PTU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GNw-vm-jLS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1991" y="1497"/>
+            <point key="canvasLocation" x="-2490" y="1564"/>
         </scene>
         <!--Home-->
         <scene sceneID="Z1C-vX-Rr7">
@@ -590,9 +579,6 @@
     </scenes>
     <designables>
         <designable name="IKo-qE-4s1">
-            <size key="intrinsicContentSize" width="-1" height="56"/>
-        </designable>
-        <designable name="USe-MF-6WT">
             <size key="intrinsicContentSize" width="-1" height="56"/>
         </designable>
     </designables>

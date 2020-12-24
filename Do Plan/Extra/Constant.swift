@@ -13,6 +13,7 @@ struct Constant {
         static let middleDark = "MiddleDark"
         static let main       = "Main"
         static let grayWhite  = "GrayWhite"
+        static let grayDark        = "GrayDark"
     }
     
     struct Identifier {
