@@ -8,27 +8,28 @@
 import UIKit
 import RealmSwift
 
-class ListController: UIViewController, NewListDelegate {
+class ListController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
     let realm = try! Realm()
-
+    var listArray: Results<Category>?
+    var selectedList: Category?
     var realmFilePath: String {
         get {
             return realm.configuration.fileURL!.deletingLastPathComponent().path
         }
     }
     
-    var listArray: Results<Category>?
-    var selectedList: Category?
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.register(UINib(nibName: Constant.Identifier.categoryCell, bundle: nil), forCellReuseIdentifier: Constant.Identifier.categoryCell)
-        
-        self.loadList()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        loadList()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -57,10 +58,6 @@ class ListController: UIViewController, NewListDelegate {
     @IBAction func addButtonPressed(_ sender: UITapGestureRecognizer) {
         performSegue(withIdentifier: Constant.Segue.newList, sender: self)
     }
-    // MARK: - Realm Methods
-    func fetchFreshData() {
-        loadList()
-    }
     
     func loadList() {
         print("🔥Refresh list🔥")
@@ -81,8 +78,9 @@ extension ListController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: Constant.Identifier.categoryCell, for: indexPath) as! CategoryCell
          
+        
         cell.titleLabel.text  = listArray?[indexPath.row].name
-        cell.numberItems.text = "0"
+        cell.numberItems.text = String(listArray?[indexPath.row].items.count ?? 0)
             
         return cell
     }
@@ -139,7 +137,15 @@ extension ListController: UITableViewDelegate, UITableViewDataSource {
         let swipe = UISwipeActionsConfiguration(actions: [delete, info])
         return swipe
     }
-
     
+}
+
+// MARK: - NewListController Delegate
+
+extension ListController: NewListDelegate {
+    func fetchFreshData() {
+        loadList()
+    }
+
 }
 

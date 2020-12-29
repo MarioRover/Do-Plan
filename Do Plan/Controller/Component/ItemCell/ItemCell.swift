@@ -10,6 +10,7 @@ import UIKit
 class ItemCell: UITableViewCell {
 
     @IBOutlet weak var itemTitle: UILabel!
+    @IBOutlet weak var doneCircle: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

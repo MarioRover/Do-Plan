@@ -14,6 +14,7 @@ struct Constant {
         static let main       = "Main"
         static let grayWhite  = "GrayWhite"
         static let grayDark   = "GrayDark"
+        static let grayDesc   = "GrayDesc"
     }
     
     struct Identifier {
