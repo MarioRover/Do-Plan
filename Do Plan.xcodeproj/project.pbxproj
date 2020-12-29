@@ -10,9 +10,12 @@
 		83258B9D258CFF700017A08F /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83258B9B258CFF700017A08F /* CategoryCell.swift */; };
 		83258B9E258CFF700017A08F /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83258B9C258CFF700017A08F /* CategoryCell.xib */; };
 		83258BC8258E745D0017A08F /* NewListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83258BC7258E745D0017A08F /* NewListController.swift */; };
-		83258BCB25937A6E0017A08F /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83258BCA25937A6E0017A08F /* List.swift */; };
+		83258BCB25937A6E0017A08F /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83258BCA25937A6E0017A08F /* Category.swift */; };
 		83258BCE25937A800017A08F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83258BCD25937A800017A08F /* Item.swift */; };
 		834B56BB25951CC7001FF1BC /* ItemsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B56BA25951CC7001FF1BC /* ItemsController.swift */; };
+		83618F3225979CD6006DDA7C /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83618F3025979CD6006DDA7C /* ItemCell.swift */; };
+		83618F3325979CD6006DDA7C /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83618F3125979CD6006DDA7C /* ItemCell.xib */; };
+		83618F3A259909B0006DDA7C /* NewItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83618F39259909B0006DDA7C /* NewItemController.swift */; };
 		8394CC772583B27D006AA9EB /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8394CC762583B27D006AA9EB /* ListController.swift */; };
 		8394CC7A2583B2A8006AA9EB /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8394CC792583B2A8006AA9EB /* SettingController.swift */; };
 		8394CC7D2583B2FF006AA9EB /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8394CC7C2583B2FF006AA9EB /* Constant.swift */; };
@@ -36,9 +39,12 @@
 		83258B9B258CFF700017A08F /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		83258B9C258CFF700017A08F /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		83258BC7258E745D0017A08F /* NewListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListController.swift; sourceTree = "<group>"; };
-		83258BCA25937A6E0017A08F /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		83258BCA25937A6E0017A08F /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		83258BCD25937A800017A08F /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		834B56BA25951CC7001FF1BC /* ItemsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsController.swift; sourceTree = "<group>"; };
+		83618F3025979CD6006DDA7C /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		83618F3125979CD6006DDA7C /* ItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
+		83618F39259909B0006DDA7C /* NewItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemController.swift; sourceTree = "<group>"; };
 		8394CC762583B27D006AA9EB /* ListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
 		8394CC792583B2A8006AA9EB /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
 		8394CC7C2583B2FF006AA9EB /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -90,6 +96,15 @@
 			path = CategoryCell;
 			sourceTree = "<group>";
 		};
+		83618F3525979CE1006DDA7C /* ItemCell */ = {
+			isa = PBXGroup;
+			children = (
+				83618F3025979CD6006DDA7C /* ItemCell.swift */,
+				83618F3125979CD6006DDA7C /* ItemCell.xib */,
+			);
+			path = ItemCell;
+			sourceTree = "<group>";
+		};
 		8394CC812583BE13006AA9EB /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				83258B9A258CFF4D0017A08F /* CategoryCell */,
+				83618F3525979CE1006DDA7C /* ItemCell */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -143,7 +159,7 @@
 		83BBE1F825833FA8006C4502 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				83258BCA25937A6E0017A08F /* List.swift */,
+				83258BCA25937A6E0017A08F /* Category.swift */,
 				83258BCD25937A800017A08F /* Item.swift */,
 			);
 			path = Model;
@@ -167,6 +183,7 @@
 				8394CC792583B2A8006AA9EB /* SettingController.swift */,
 				83258BC7258E745D0017A08F /* NewListController.swift */,
 				834B56BA25951CC7001FF1BC /* ItemsController.swift */,
+				83618F39259909B0006DDA7C /* NewItemController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -263,6 +280,7 @@
 				83A08ED9258A814F00F8A4FD /* Shabnam-FD.ttf in Resources */,
 				83A08EDA258A814F00F8A4FD /* Shabnam-Light-FD.ttf in Resources */,
 				83258B9E258CFF700017A08F /* CategoryCell.xib in Resources */,
+				83618F3325979CD6006DDA7C /* ItemCell.xib in Resources */,
 				83A08EDB258A814F00F8A4FD /* Shabnam-Medium-FD.ttf in Resources */,
 				83A08EDC258A814F00F8A4FD /* Shabnam-Thin-FD.ttf in Resources */,
 				83BBE1F025833F64006C4502 /* LaunchScreen.storyboard in Resources */,
@@ -324,8 +342,10 @@
 				83258BC8258E745D0017A08F /* NewListController.swift in Sources */,
 				834B56BB25951CC7001FF1BC /* ItemsController.swift in Sources */,
 				83BBE1E825833F62006C4502 /* HomeController.swift in Sources */,
-				83258BCB25937A6E0017A08F /* List.swift in Sources */,
+				83258BCB25937A6E0017A08F /* Category.swift in Sources */,
 				83BBE1E425833F62006C4502 /* AppDelegate.swift in Sources */,
+				83618F3225979CD6006DDA7C /* ItemCell.swift in Sources */,
+				83618F3A259909B0006DDA7C /* NewItemController.swift in Sources */,
 				83258B9D258CFF700017A08F /* CategoryCell.swift in Sources */,
 				83258BCE25937A800017A08F /* Item.swift in Sources */,
 				83BBE1E625833F62006C4502 /* SceneDelegate.swift in Sources */,

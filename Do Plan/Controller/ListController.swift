@@ -20,8 +20,8 @@ class ListController: UIViewController, NewListDelegate {
         }
     }
     
-    var listArray: Results<List>?
-    var selectedList: List?
+    var listArray: Results<Category>?
+    var selectedList: Category?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,7 @@ class ListController: UIViewController, NewListDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constant.Identifier.newListSegue {
+        if segue.identifier == Constant.Segue.newList {
             let vc = segue.destination as! NewListController
             vc.delegate = self
 
@@ -41,10 +41,21 @@ class ListController: UIViewController, NewListDelegate {
                 selectedList = nil
             }
         }
+        
+        if segue.identifier == Constant.Segue.items {
+            let vc = segue.destination as! ItemsController
+
+            if selectedList != nil {
+                vc.pageTitle = selectedList?.name
+                vc.currentCategory = selectedList
+                selectedList = nil
+            }
+                        
+        }
     }
     
     @IBAction func addButtonPressed(_ sender: UITapGestureRecognizer) {
-        performSegue(withIdentifier: Constant.Identifier.newListSegue, sender: self)
+        performSegue(withIdentifier: Constant.Segue.newList, sender: self)
     }
     // MARK: - Realm Methods
     func fetchFreshData() {
@@ -53,7 +64,7 @@ class ListController: UIViewController, NewListDelegate {
     
     func loadList() {
         print("🔥Refresh list🔥")
-        listArray = realm.objects(List.self).sorted(byKeyPath: "createdAt", ascending: true)
+        listArray = realm.objects(Category.self).sorted(byKeyPath: "createdAt", ascending: true)
         tableView.reloadData()
     }
     
@@ -82,7 +93,8 @@ extension ListController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // TODO: - send data to controller
-        performSegue(withIdentifier: Constant.Identifier.itemsSegue, sender: self)
+        selectedList = listArray?[indexPath.row]
+        performSegue(withIdentifier: Constant.Segue.items, sender: self)
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -112,7 +124,7 @@ extension ListController: UITableViewDelegate, UITableViewDataSource {
         let info = UIContextualAction(style: .normal, title: "Info") { (action, view, completionHandler) in
             
             self.selectedList = self.listArray?[indexPath.row]
-            self.performSegue(withIdentifier: Constant.Identifier.newListSegue, sender: self)
+            self.performSegue(withIdentifier: Constant.Segue.newList, sender: self)
             
             completionHandler(true)
         }

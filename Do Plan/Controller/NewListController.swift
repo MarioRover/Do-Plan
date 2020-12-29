@@ -20,7 +20,7 @@ class NewListController: UIViewController {
 
     let realm = try! Realm()
     weak var delegate: NewListDelegate?
-    var selectedList: List?
+    var selectedList: Category?
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +53,7 @@ class NewListController: UIViewController {
                     print("❌ Error update list \(error)")
                 }
             } else {
-                let newList = List()
+                let newList = Category()
                 newList.name = text
                 saveRealm(list: newList)
             }
@@ -71,7 +71,7 @@ class NewListController: UIViewController {
 
     // MARK: - Realm Methods
 
-    func saveRealm(list: List) {
+    func saveRealm(list: Category) {
         do {
             try realm.write {
                 realm.add(list)

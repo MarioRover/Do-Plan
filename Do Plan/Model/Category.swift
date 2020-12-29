@@ -8,7 +8,8 @@
 import Foundation
 import RealmSwift
 
-class List: Object {
+class Category: Object {
     @objc dynamic var name: String = ""
     @objc dynamic var createdAt: Date = Date()
+    let items = List<Item>()
 }

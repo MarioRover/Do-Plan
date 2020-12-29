@@ -13,12 +13,17 @@ struct Constant {
         static let middleDark = "MiddleDark"
         static let main       = "Main"
         static let grayWhite  = "GrayWhite"
-        static let grayDark        = "GrayDark"
+        static let grayDark   = "GrayDark"
     }
     
     struct Identifier {
         static let categoryCell = "CategoryCell"
-        static let newListSegue = "NewListSegue"
-        static let itemsSegue   = "ItemsSegue"
+        static let itemCell     = "ItemCell"
+    }
+    
+    struct Segue {
+        static let newList = "NewListSegue"
+        static let items   = "ItemsSegue"
+        static let newItem = "NewItemSegue"
     }
 }
