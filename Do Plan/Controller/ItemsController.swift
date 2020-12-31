@@ -97,6 +97,28 @@ extension ItemsController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
+            if let item = self.itemArray?[indexPath.row] {
+                do {
+                    try self.realm.write {
+                        self.realm.delete(item)
+                    }
+                } catch {
+                    print("❌ Error delete list index \(error)")
+                }
+            }
+            self.tableView.reloadData()
+            completionHandler(true)
+        }
+        
+        delete.backgroundColor = .red
+        
+        let swipe = UISwipeActionsConfiguration(actions: [delete])
+        return swipe
+    
+    }
+    
 }
 
 // MARK: - NewItemDelegate

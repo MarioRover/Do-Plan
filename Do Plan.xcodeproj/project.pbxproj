@@ -30,6 +30,7 @@
 		83BBE1EB25833F62006C4502 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83BBE1E925833F62006C4502 /* Main.storyboard */; };
 		83BBE1ED25833F64006C4502 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83BBE1EC25833F64006C4502 /* Assets.xcassets */; };
 		83BBE1F025833F64006C4502 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83BBE1EE25833F64006C4502 /* LaunchScreen.storyboard */; };
+		83BC0819259E5F4300DC18DF /* NotesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BC0818259E5F4300DC18DF /* NotesController.swift */; };
 		83D40394258A77510074E951 /* Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D40393258A77510074E951 /* Extenstion.swift */; };
 		B56399EEBA70ADB3B4AB3F9D /* Pods_Do_Plan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F52F692CB36CF22FFCDFA31B /* Pods_Do_Plan.framework */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,7 @@
 		83BBE1EC25833F64006C4502 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		83BBE1EF25833F64006C4502 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83BBE1F125833F64006C4502 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83BC0818259E5F4300DC18DF /* NotesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesController.swift; sourceTree = "<group>"; };
 		83D40393258A77510074E951 /* Extenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extenstion.swift; sourceTree = "<group>"; };
 		83D4039A258A77E60074E951 /* Shabnam-Light-FD.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Shabnam-Light-FD.ttf"; sourceTree = "<group>"; };
 		83D4039B258A77E60074E951 /* Shabnam-Bold-FD.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Shabnam-Bold-FD.ttf"; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				83258BC7258E745D0017A08F /* NewListController.swift */,
 				834B56BA25951CC7001FF1BC /* ItemsController.swift */,
 				83618F39259909B0006DDA7C /* NewItemController.swift */,
+				83BC0818259E5F4300DC18DF /* NotesController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				83618F3A259909B0006DDA7C /* NewItemController.swift in Sources */,
 				83258B9D258CFF700017A08F /* CategoryCell.swift in Sources */,
 				83258BCE25937A800017A08F /* Item.swift in Sources */,
+				83BC0819259E5F4300DC18DF /* NotesController.swift in Sources */,
 				83BBE1E625833F62006C4502 /* SceneDelegate.swift in Sources */,
 				8394CC772583B27D006AA9EB /* ListController.swift in Sources */,
 				83D40394258A77510074E951 /* Extenstion.swift in Sources */,

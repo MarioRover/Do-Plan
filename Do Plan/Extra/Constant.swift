@@ -26,5 +26,6 @@ struct Constant {
         static let newList = "NewListSegue"
         static let items   = "ItemsSegue"
         static let newItem = "NewItemSegue"
+        static let notes    = "NotesSegue"
     }
 }
