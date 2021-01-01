@@ -121,6 +121,19 @@ extension ItemsController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
+// MARK: - SearchBar
+
+extension ItemsController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            loadItems(doReload: true)
+        } else {
+            itemArray = itemArray?.filter("name CONTAINS[cd] %@", searchText).sorted(byKeyPath: "createdAt", ascending: true)
+            tableView.reloadData()
+        }
+    }
+}
+
 // MARK: - NewItemDelegate
 
 extension ItemsController: NewItemDelegate {

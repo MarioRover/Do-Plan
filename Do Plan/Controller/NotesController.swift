@@ -29,11 +29,11 @@ class NotesController: UIViewController {
         closePage()
     }
     @IBAction func doneButtonPressed(_ sender: UIButton) {
+        delegate?.setNotes(text: textView.text)
         closePage()
     }
     
     func closePage() {
-        delegate?.setNotes(text: textView.text)
         dismiss(animated: true, completion: nil)
     }
 }
