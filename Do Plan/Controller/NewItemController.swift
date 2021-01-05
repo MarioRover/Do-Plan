@@ -19,7 +19,6 @@ class NewItemController: UIViewController {
     @IBOutlet weak var notesLabel: UILabel!
     @IBOutlet weak var notesText: UILabel!
     @IBOutlet weak var listLabel: UILabel!
-    
     // Priority
     @IBOutlet weak var priorityPicker: UIPickerView!
     @IBOutlet weak var priorityViewtHeight: NSLayoutConstraint!
@@ -62,14 +61,14 @@ class NewItemController: UIViewController {
     @IBAction func donePressed(_ sender: UIButton) {
         saveItem()
     }
-    
+
     @IBAction func noteViewTapped(_ sender: UITapGestureRecognizer) {
         performSegue(withIdentifier: Constant.Segue.notes, sender: self)
     }
-    
+
     @IBAction func priorityViewTapped(_ sender: UITapGestureRecognizer) {
         priorityPicker.isHidden = isShowPriorityPicker
-        
+
         UIView.animate(withDuration: 0.5) {
             self.priorityViewtHeight.constant = self.isShowPriorityPicker ? 49 : 200
             self.view.layoutIfNeeded()
@@ -80,20 +79,20 @@ class NewItemController: UIViewController {
     @objc func backgroundTapped(_ sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
     }
-    
+
     func closePage() {
         dismiss(animated: true, completion: nil)
     }
-    
+
     func saveItem() {
         var title: String = ""
         var notes: String = ""
         var priority: String = priorityList[0]
-        
+
         if let textTitle = textField.text, !textTitle.isEmpty { title = textTitle }
         if let textNotes = notesText.text, !textNotes.isEmpty { notes = textNotes }
         if let textPriority = priorityLabel.text { priority = textPriority }
-        
+
         if !title.isEmpty && currentCategory != nil {
             do {
                 try realm.write {
@@ -109,7 +108,7 @@ class NewItemController: UIViewController {
                 print("❌ Error in save item \(error)")
             }
         }
-        
+
     }
     
 }
@@ -121,7 +120,7 @@ extension NewItemController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         doneButton.isEnabled = !textField.text!.isEmpty
     }
-    
+
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let currentText = textField.text ?? ""
         guard let stringRange = Range(range, in: currentText) else { return false }
@@ -150,8 +149,8 @@ extension NewItemController: NotesDelegate {
 // MARK: - UIPickerDelegate
 
 extension NewItemController: UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    
+
+
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
