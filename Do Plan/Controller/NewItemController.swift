@@ -19,6 +19,11 @@ class NewItemController: UIViewController {
     @IBOutlet weak var notesLabel: UILabel!
     @IBOutlet weak var notesText: UILabel!
     @IBOutlet weak var listLabel: UILabel!
+    // Picker
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var dateViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var timePicker: UIDatePicker!
+    @IBOutlet weak var timeViewHeight: NSLayoutConstraint!
     // Priority
     @IBOutlet weak var priorityPicker: UIPickerView!
     @IBOutlet weak var priorityViewtHeight: NSLayoutConstraint!
@@ -43,6 +48,11 @@ class NewItemController: UIViewController {
     
         priorityLabel.text = priorityList[0]
         self.priorityViewtHeight.constant = 49
+        self.dateViewHeight.constant      = 49
+        self.timeViewHeight.constant      = 49
+        
+        datePicker.addTarget(self, action: #selector(datePickerChanged(picker:)), for: .valueChanged)
+        timePicker.addTarget(self, action: #selector(timePickerChanged(picker:)), for: .valueChanged)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -55,6 +65,8 @@ class NewItemController: UIViewController {
         }
     }
     
+
+    
     @IBAction func cancelPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
@@ -66,16 +78,6 @@ class NewItemController: UIViewController {
         performSegue(withIdentifier: Constant.Segue.notes, sender: self)
     }
 
-    @IBAction func priorityViewTapped(_ sender: UITapGestureRecognizer) {
-        priorityPicker.isHidden = isShowPriorityPicker
-
-        UIView.animate(withDuration: 0.5) {
-            self.priorityViewtHeight.constant = self.isShowPriorityPicker ? 49 : 200
-            self.view.layoutIfNeeded()
-        }
-        isShowPriorityPicker = !isShowPriorityPicker
-    }
-    
     @objc func backgroundTapped(_ sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
     }
@@ -100,6 +102,8 @@ class NewItemController: UIViewController {
                     newItem.name     = title
                     newItem.notes    = notes
                     newItem.priority = priority
+                    newItem.date     = datePicker.date
+                    newItem.time     = timePicker.date
                     currentCategory?.items.append(newItem)
                 }
                 delegate?.fetchFreshList()
@@ -149,8 +153,7 @@ extension NewItemController: NotesDelegate {
 // MARK: - UIPickerDelegate
 
 extension NewItemController: UIPickerViewDelegate, UIPickerViewDataSource {
-
-
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -171,5 +174,47 @@ extension NewItemController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         priorityLabel.text = priorityList[row]
+    }
+}
+
+// MARK: - DatePicker methods
+
+extension NewItemController {
+    @IBAction func priorityViewTapped(_ sender: UITapGestureRecognizer) {
+        priorityPicker.isHidden = isShowPriorityPicker
+
+        UIView.animate(withDuration: 0.5) {
+            self.priorityViewtHeight.constant = self.isShowPriorityPicker ? 49 : 200
+            self.view.layoutIfNeeded()
+        }
+        isShowPriorityPicker = !isShowPriorityPicker
+    }
+
+    @IBAction func dateSwitchPressed(_ sender: UISwitch) {
+        let isOn = sender.isOn
+        self.datePicker.isHidden = !isOn
+
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut) {
+            self.dateViewHeight.constant = isOn ? 200 : 49
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    @IBAction func timeSwitchPressed(_ sender: UISwitch) {
+        let isOn = sender.isOn
+        self.timePicker.isHidden = !isOn
+
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut) {
+            self.timeViewHeight.constant = isOn ? 98 : 49
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    @objc func datePickerChanged(picker: UIDatePicker) {
+        print(picker.date)
+    }
+    
+    @objc func timePickerChanged(picker: UIDatePicker) {
+        print(picker.date)
     }
 }
