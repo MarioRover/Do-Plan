@@ -14,7 +14,7 @@ class Item: Object {
     @objc dynamic var priority: String = "None"
     @objc dynamic var date: Date?
     @objc dynamic var time: Date?
-    @objc dynamic var done: Bool    = false
-    @objc dynamic var createdAt: Date = Date()
+    @objc dynamic var done: Bool = false
+    @objc dynamic var createdAt: Date?
     var parentCategory = LinkingObjects(fromType: Category.self, property: "items")
 }

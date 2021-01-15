@@ -850,7 +850,7 @@
                                                                                 </constraints>
                                                                             </imageView>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLZ-ev-iAJ">
-                                                                                <rect key="frame" x="52" y="16" width="31" height="17"/>
+                                                                                <rect key="frame" x="52" y="8" width="31" height="17"/>
                                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
@@ -862,16 +862,25 @@
                                                                                     <action selector="dateSwitchPressed:" destination="ceF-Xx-gbF" eventType="valueChanged" id="K5f-6e-rpL"/>
                                                                                 </connections>
                                                                             </switch>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remind" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRQ-X5-MIN" userLabel="Date reminder">
+                                                                                <rect key="frame" x="52" y="25" width="47" height="16"/>
+                                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                                                                <color key="textColor" red="0.95686274510000002" green="0.023529411760000001" blue="0.023529411760000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstItem="JEO-Kr-SmG" firstAttribute="centerY" secondItem="jFQ-Ta-yCB" secondAttribute="centerY" id="6eN-AA-T4r"/>
                                                                             <constraint firstAttribute="trailing" secondItem="jvU-Eq-U6s" secondAttribute="trailing" constant="13" id="71p-jI-M1n"/>
                                                                             <constraint firstItem="jvU-Eq-U6s" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eLZ-ev-iAJ" secondAttribute="trailing" constant="8" symbolic="YES" id="9cO-EU-0i8"/>
-                                                                            <constraint firstItem="eLZ-ev-iAJ" firstAttribute="centerY" secondItem="jFQ-Ta-yCB" secondAttribute="centerY" id="Arw-1k-uc2"/>
+                                                                            <constraint firstItem="eLZ-ev-iAJ" firstAttribute="top" secondItem="jFQ-Ta-yCB" secondAttribute="top" constant="8" id="Bfy-jq-kv1"/>
                                                                             <constraint firstItem="eLZ-ev-iAJ" firstAttribute="leading" secondItem="JEO-Kr-SmG" secondAttribute="trailing" constant="11" id="L1b-k7-gzM"/>
                                                                             <constraint firstItem="jvU-Eq-U6s" firstAttribute="centerY" secondItem="jFQ-Ta-yCB" secondAttribute="centerY" id="Ufl-6l-GRq"/>
+                                                                            <constraint firstItem="jvU-Eq-U6s" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mRQ-X5-MIN" secondAttribute="trailing" constant="8" symbolic="YES" id="h48-2E-kRu"/>
                                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="49" id="oiA-xG-0ze"/>
+                                                                            <constraint firstItem="mRQ-X5-MIN" firstAttribute="leading" secondItem="JEO-Kr-SmG" secondAttribute="trailing" constant="11" id="ql2-5z-RQs"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="mRQ-X5-MIN" secondAttribute="bottom" constant="8" id="qrj-hQ-A9G"/>
                                                                             <constraint firstAttribute="height" constant="49" id="tYw-OS-Zk8"/>
                                                                             <constraint firstItem="JEO-Kr-SmG" firstAttribute="leading" secondItem="jFQ-Ta-yCB" secondAttribute="leading" constant="13" id="zVU-ue-JCr"/>
                                                                         </constraints>
@@ -940,7 +949,7 @@
                                                                         <rect key="frame" x="0.0" y="0.0" width="366" height="49"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vi6-ma-HfI">
-                                                                                <rect key="frame" x="52" y="16" width="33" height="17"/>
+                                                                                <rect key="frame" x="52" y="8" width="33" height="17"/>
                                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
@@ -960,16 +969,25 @@
                                                                                     <constraint firstAttribute="height" constant="29" id="ifV-Xj-mgn"/>
                                                                                 </constraints>
                                                                             </imageView>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remind" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vpn-Z5-fUe" userLabel="Time remind">
+                                                                                <rect key="frame" x="55" y="25" width="47" height="16"/>
+                                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                                                                <color key="textColor" red="0.95686274510000002" green="0.023529411760000001" blue="0.023529411760000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
+                                                                            <constraint firstAttribute="bottom" secondItem="vpn-Z5-fUe" secondAttribute="bottom" constant="8" id="Dde-DM-Nlw"/>
                                                                             <constraint firstItem="qEF-Tg-gc7" firstAttribute="leading" secondItem="zJT-fm-FRa" secondAttribute="leading" constant="16" id="Ir5-Tp-h49"/>
+                                                                            <constraint firstItem="vi6-ma-HfI" firstAttribute="top" secondItem="zJT-fm-FRa" secondAttribute="top" constant="8" id="KdI-M7-0xY"/>
                                                                             <constraint firstItem="vi6-ma-HfI" firstAttribute="leading" secondItem="qEF-Tg-gc7" secondAttribute="trailing" constant="8" id="Kpd-9X-1hu"/>
                                                                             <constraint firstItem="fmF-BZ-rTg" firstAttribute="centerY" secondItem="zJT-fm-FRa" secondAttribute="centerY" id="QHR-xG-noP"/>
                                                                             <constraint firstAttribute="height" constant="49" id="Yrz-po-xKM"/>
                                                                             <constraint firstItem="qEF-Tg-gc7" firstAttribute="centerY" secondItem="zJT-fm-FRa" secondAttribute="centerY" id="ab1-Hc-oAK"/>
                                                                             <constraint firstItem="fmF-BZ-rTg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vi6-ma-HfI" secondAttribute="trailing" constant="8" symbolic="YES" id="aqO-Ci-mWp"/>
-                                                                            <constraint firstItem="vi6-ma-HfI" firstAttribute="centerY" secondItem="zJT-fm-FRa" secondAttribute="centerY" id="f9n-PP-V1h"/>
+                                                                            <constraint firstItem="vpn-Z5-fUe" firstAttribute="leading" secondItem="qEF-Tg-gc7" secondAttribute="trailing" constant="11" id="dyA-6d-KCZ"/>
+                                                                            <constraint firstItem="fmF-BZ-rTg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vpn-Z5-fUe" secondAttribute="trailing" constant="8" symbolic="YES" id="tci-nx-ipo"/>
                                                                             <constraint firstAttribute="trailing" secondItem="fmF-BZ-rTg" secondAttribute="trailing" constant="13" id="wFH-dh-lGv"/>
                                                                         </constraints>
                                                                     </view>
@@ -1174,8 +1192,8 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yUk-CB-noq" userLabel="History">
                                                         <rect key="frame" x="0.0" y="906" width="366" height="30"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created at 7 April 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUz-Xl-UJo">
-                                                                <rect key="frame" x="0.0" y="4.5" width="184" height="21.5"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUz-Xl-UJo">
+                                                                <rect key="frame" x="0.0" y="15" width="0.0" height="0.0"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -1241,7 +1259,12 @@
                     </view>
                     <size key="freeformSize" width="414" height="1200"/>
                     <connections>
+                        <outlet property="createdLabel" destination="vUz-Xl-UJo" id="49K-vT-9PO"/>
                         <outlet property="datePicker" destination="3n2-st-kYc" id="K9P-hx-etW"/>
+                        <outlet property="dateRemindLabel" destination="mRQ-X5-MIN" id="724-Ts-Dee"/>
+                        <outlet property="dateReminderBottomLayout" destination="qrj-hQ-A9G" id="S0t-Te-xhT"/>
+                        <outlet property="dateSwitch" destination="jvU-Eq-U6s" id="iqY-lE-Hhl"/>
+                        <outlet property="dateTitleTopLayout" destination="Bfy-jq-kv1" id="3uJ-ZT-fsh"/>
                         <outlet property="dateViewHeight" destination="PWf-1z-1de" id="OIy-Pc-65G"/>
                         <outlet property="doneButton" destination="TMv-Vv-qOH" id="Cax-5e-JBn"/>
                         <outlet property="listLabel" destination="U16-hs-Sjg" id="K5y-BG-oYl"/>
@@ -1252,6 +1275,10 @@
                         <outlet property="priorityViewtHeight" destination="ayY-ri-Zzn" id="EL2-a0-Y8l"/>
                         <outlet property="textField" destination="16s-uW-gFc" id="9cb-6G-GMY"/>
                         <outlet property="timePicker" destination="yIy-5Z-yes" id="gNu-dx-hHE"/>
+                        <outlet property="timeRemindBottomLayout" destination="Dde-DM-Nlw" id="PCz-Nb-75w"/>
+                        <outlet property="timeRemindLabel" destination="vpn-Z5-fUe" id="Ky6-BN-wsq"/>
+                        <outlet property="timeSwitch" destination="fmF-BZ-rTg" id="FXR-Lr-imw"/>
+                        <outlet property="timeTitleTopLayout" destination="KdI-M7-0xY" id="i23-SH-yqC"/>
                         <outlet property="timeViewHeight" destination="IMz-QS-5gC" id="A4b-lh-Xsw"/>
                         <segue destination="bYB-Z7-how" kind="showDetail" identifier="NotesSegue" id="Iw1-8w-pyI"/>
                     </connections>

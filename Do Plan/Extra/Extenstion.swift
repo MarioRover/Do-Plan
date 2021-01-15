@@ -91,3 +91,31 @@ extension UIFont {
     }
 }
 
+
+extension Date {
+    static func dateFormatToString(date: Date, type: type) -> String {
+        let dateFormatter = DateFormatter()
+        var dateFormat: String
+        
+        switch type {
+            case .date:
+                dateFormat = "EEE, MMM d, yyyy"
+            case .time:
+                dateFormat = "h:mm"
+            case .timePA:
+                dateFormat = "h:mm a"
+            case .standard:
+                dateFormat = "E, d MMM yyyy HH:mm:ss"
+        }
+    
+        dateFormatter.dateFormat = dateFormat
+        return dateFormatter.string(from: date)
+    }
+    
+    enum type {
+        case standard
+        case date
+        case timePA
+        case time
+    }
+}

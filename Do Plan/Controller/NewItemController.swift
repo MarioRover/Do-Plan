@@ -19,11 +19,21 @@ class NewItemController: UIViewController {
     @IBOutlet weak var notesLabel: UILabel!
     @IBOutlet weak var notesText: UILabel!
     @IBOutlet weak var listLabel: UILabel!
-    // Picker
+    @IBOutlet weak var createdLabel: UILabel!
+    // Date
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var dateViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var dateSwitch: UISwitch!
+    @IBOutlet weak var dateTitleTopLayout: NSLayoutConstraint!
+    @IBOutlet weak var dateReminderBottomLayout: NSLayoutConstraint!
+    @IBOutlet weak var dateRemindLabel: UILabel!
+    // Time
+    @IBOutlet weak var timeSwitch: UISwitch!
     @IBOutlet weak var timePicker: UIDatePicker!
     @IBOutlet weak var timeViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var timeTitleTopLayout: NSLayoutConstraint!
+    @IBOutlet weak var timeRemindLabel: UILabel!
+    @IBOutlet weak var timeRemindBottomLayout: NSLayoutConstraint!
     // Priority
     @IBOutlet weak var priorityPicker: UIPickerView!
     @IBOutlet weak var priorityViewtHeight: NSLayoutConstraint!
@@ -34,25 +44,59 @@ class NewItemController: UIViewController {
     let realm = try! Realm()
     var currentCategory: Category?
     weak var delegate: NewItemDelegate?
+    var selectedItem: Item?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        doneButton.isEnabled = false
+        
         let tapGestureBackground = UITapGestureRecognizer(target: self, action: #selector(self.backgroundTapped(_:)))
         self.view.addGestureRecognizer(tapGestureBackground)
         
         if currentCategory != nil {
             listLabel.text = currentCategory?.name
         }
-        
     
-        priorityLabel.text = priorityList[0]
         self.priorityViewtHeight.constant = 49
         self.dateViewHeight.constant      = 49
         self.timeViewHeight.constant      = 49
         
         datePicker.addTarget(self, action: #selector(datePickerChanged(picker:)), for: .valueChanged)
         timePicker.addTarget(self, action: #selector(timePickerChanged(picker:)), for: .valueChanged)
+        
+        if let item = selectedItem {
+            doneButton.isEnabled = true
+            textField.text = item.name
+            setNotes(text: item.notes)
+            priorityLabel.text = item.priority
+            if let itemCreateDate = item.createdAt { setCreatedLabel(date: itemCreateDate) }
+            
+            if let itemDate = selectedItem?.date {
+                dateSwitch.isOn = true
+                dateViewHeight.constant = 200
+                datePicker.date = itemDate
+                datePicker.isHidden = false
+                dateRemindLabel.text = Date.dateFormatToString(date: itemDate, type: .date)
+            }
+            
+            if let itemTime = selectedItem?.time {
+                timeSwitch.isOn = true
+                timeViewHeight.constant = 98
+                timePicker.date = itemTime
+                timePicker.isHidden = false
+                timeRemindLabel.text = Date.dateFormatToString(date: itemTime, type: .time)
+            }
+            
+            
+        } else {
+            doneButton.isEnabled = false
+            priorityLabel.text = priorityList[0]
+            dateRemindLabel.isHidden = true
+            dateTitleTopLayout.constant = 16
+            dateRemindLabel.text = Date.dateFormatToString(date: datePicker.date, type: .date)
+            timeRemindLabel.isHidden = true
+            timeTitleTopLayout.constant = 16
+            timeRemindLabel.text = Date.dateFormatToString(date: timePicker.date, type: .time)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -85,6 +129,26 @@ class NewItemController: UIViewController {
     func closePage() {
         dismiss(animated: true, completion: nil)
     }
+    
+    func setCreatedLabel(date: Date) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d MMM yyyy"
+        createdLabel.text = "Created at \(dateFormatter.string(from: date))"
+    }
+    
+//    func dateFormatterString(date: Date, type: dateType) -> String {
+//        let dateFormatter = DateFormatter()
+//        var dateFormat = "E, d MMM yyyy HH:mm:ss"
+//        if type == dateType.date {
+//            dateFormat = "EEE, MMM d, yyyy"
+//        } else if type == dateType.time {
+//            dateFormat = "h:mm a"
+//        }
+//        dateFormatter.dateFormat = dateFormat
+//        return dateFormatter.string(from: date)
+//    }
+    
+
 
     func saveItem() {
         var title: String = ""
@@ -96,21 +160,36 @@ class NewItemController: UIViewController {
         if let textPriority = priorityLabel.text { priority = textPriority }
 
         if !title.isEmpty && currentCategory != nil {
-            do {
-                try realm.write {
-                    let newItem      = Item()
-                    newItem.name     = title
-                    newItem.notes    = notes
-                    newItem.priority = priority
-                    newItem.date     = datePicker.date
-                    newItem.time     = timePicker.date
-                    currentCategory?.items.append(newItem)
+            if selectedItem != nil {
+                do {
+                    try realm.write {
+                        selectedItem?.name     = title
+                        selectedItem?.notes    = notes
+                        selectedItem?.priority = priority
+                        selectedItem?.date     = dateSwitch.isOn ? datePicker.date : nil
+                        selectedItem?.time     = timeSwitch.isOn ? timePicker.date : nil
+                    }
+                } catch {
+                    print("❌ Error in update item \(error)")
                 }
-                delegate?.fetchFreshList()
-                closePage()
-            } catch {
-                print("❌ Error in save item \(error)")
+            } else {
+                do {
+                    try realm.write {
+                        let newItem      = Item()
+                        newItem.name     = title
+                        newItem.notes    = notes
+                        newItem.priority = priority
+                        newItem.date     = dateSwitch.isOn ? datePicker.date : nil
+                        newItem.time     = timeSwitch.isOn ? timePicker.date : nil
+                        newItem.createdAt = Date()
+                        currentCategory?.items.append(newItem)
+                    }
+                } catch {
+                    print("❌ Error in save item \(error)")
+                }
             }
+            delegate?.fetchFreshList()
+            closePage()
         }
 
     }
@@ -193,28 +272,45 @@ extension NewItemController {
     @IBAction func dateSwitchPressed(_ sender: UISwitch) {
         let isOn = sender.isOn
         self.datePicker.isHidden = !isOn
-
-        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut) {
-            self.dateViewHeight.constant = isOn ? 200 : 49
+        self.dateTitleTopLayout.constant = isOn ? 8 : 16
+        self.dateViewHeight.constant = isOn ? 200 : 49
+        if !isOn {
+            self.dateRemindLabel.isHidden = true
+        }
+    
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut) {
             self.view.layoutIfNeeded()
+        } completion: { finished in
+            if isOn {
+                self.dateRemindLabel.isHidden = false
+            }
         }
     }
     
     @IBAction func timeSwitchPressed(_ sender: UISwitch) {
         let isOn = sender.isOn
         self.timePicker.isHidden = !isOn
-
-        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut) {
-            self.timeViewHeight.constant = isOn ? 98 : 49
-            self.view.layoutIfNeeded()
+        self.timeTitleTopLayout.constant = isOn ? 8 : 16
+        self.timeViewHeight.constant = isOn ? 98 : 49
+        if !isOn {
+            self.timeRemindLabel.isHidden = true
         }
+        
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut) {
+            self.view.layoutIfNeeded()
+        } completion: { finished in
+            if isOn {
+                self.timeRemindLabel.isHidden = false
+            }
+        }
+ 
     }
     
     @objc func datePickerChanged(picker: UIDatePicker) {
-        print(picker.date)
+        dateRemindLabel.text = Date.dateFormatToString(date: picker.date, type: .date)
     }
     
     @objc func timePickerChanged(picker: UIDatePicker) {
-        print(picker.date)
+        timeRemindLabel.text = Date.dateFormatToString(date: picker.date, type: .time)
     }
 }

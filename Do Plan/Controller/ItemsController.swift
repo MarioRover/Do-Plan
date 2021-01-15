@@ -15,6 +15,7 @@ class ItemsController: UIViewController {
     var pageTitle: String?
     var itemArray: Results<Item>?
     let realm = try! Realm()
+    var selectedItem: Item?
     var currentCategory: Category? {
         didSet {
             loadItems()
@@ -38,6 +39,11 @@ class ItemsController: UIViewController {
             let vc = segue.destination as! NewItemController
             vc.delegate = self
             vc.currentCategory = currentCategory
+            
+            if selectedItem != nil {
+                vc.selectedItem = selectedItem
+                selectedItem = nil
+            } 
         }
     }
     
@@ -117,6 +123,11 @@ extension ItemsController: UITableViewDelegate, UITableViewDataSource {
         let swipe = UISwipeActionsConfiguration(actions: [delete])
         return swipe
     
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedItem = itemArray?[indexPath.row]
+        performSegue(withIdentifier: Constant.Segue.newItem, sender: self)
     }
     
 }
