@@ -105,7 +105,7 @@ extension Date {
             case .timePA:
                 dateFormat = "h:mm a"
             case .standard:
-                dateFormat = "E, d MMM yyyy HH:mm:ss"
+                dateFormat = "E, d MMM yyyy h:mm a"
         }
     
         dateFormatter.dateFormat = dateFormat

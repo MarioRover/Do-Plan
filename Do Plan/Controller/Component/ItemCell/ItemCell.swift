@@ -11,9 +11,12 @@ class ItemCell: UITableViewCell {
 
     @IBOutlet weak var itemTitle: UILabel!
     @IBOutlet weak var doneCircle: UIImageView!
+    @IBOutlet weak var priorityIcon: UIImageView!
+    @IBOutlet weak var reminderLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.selectionStyle = .none
         // Initialization code
     }
 

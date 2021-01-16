@@ -14,7 +14,7 @@
             <objects>
                 <viewController id="Dgc-eE-ziM" userLabel="List" customClass="ListController" customModule="Do_Plan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qaQ-M0-xmL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fes-XK-Bzm" userLabel="Container">
@@ -110,7 +110,7 @@
             <objects>
                 <viewController id="fpo-cj-qjz" userLabel="New List" customClass="NewListController" customModule="Do_Plan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nwi-KD-qAB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1rL-dj-EAT" userLabel="Container">
@@ -201,7 +201,7 @@
             <objects>
                 <viewController id="CCK-2b-V7V" userLabel="Items" customClass="ItemsController" customModule="Do_Plan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zHY-m1-naS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Qw-aT-a4h" userLabel="Container">
@@ -220,15 +220,16 @@
                                             <outlet property="delegate" destination="CCK-2b-V7V" id="ivS-UO-xwh"/>
                                         </connections>
                                     </searchBar>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HNC-it-VWw">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HNC-it-VWw">
                                         <rect key="frame" x="0.0" y="71" width="388" height="634"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="separatorColor" name="GrayDark"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" id="Mnp-gB-cv7">
-                                                <rect key="frame" x="0.0" y="28" width="388" height="44"/>
+                                                <rect key="frame" x="0.0" y="28" width="388" height="43.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mnp-gB-cv7" id="CHE-5a-jsA">
-                                                    <rect key="frame" x="0.0" y="0.0" width="388" height="44"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="388" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </tableViewCellContentView>
                                             </tableViewCell>
@@ -309,7 +310,7 @@
             <objects>
                 <viewController id="HGK-PC-9xB" userLabel="Home" customClass="HomeController" customModule="Do_Plan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iEV-Uq-peO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V9N-YZ-rkQ" userLabel="Container">
@@ -616,7 +617,7 @@
             <objects>
                 <viewController id="Zgn-2Z-BG4" userLabel="Setting" customClass="SettingController" customModule="Do_Plan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2b9-El-495">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Ycq-J0-WfC"/>
                         <color key="backgroundColor" name="MiddleDark"/>
@@ -676,7 +677,7 @@
             <objects>
                 <viewController id="ceF-Xx-gbF" customClass="NewItemController" customModule="Do_Plan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mhn-w3-Ycr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1146"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d1U-yx-t15">
@@ -862,7 +863,7 @@
                                                                                     <action selector="dateSwitchPressed:" destination="ceF-Xx-gbF" eventType="valueChanged" id="K5f-6e-rpL"/>
                                                                                 </connections>
                                                                             </switch>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remind" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRQ-X5-MIN" userLabel="Date reminder">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remind" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRQ-X5-MIN" userLabel="Date Remind">
                                                                                 <rect key="frame" x="52" y="25" width="47" height="16"/>
                                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                                                                 <color key="textColor" red="0.95686274510000002" green="0.023529411760000001" blue="0.023529411760000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -969,7 +970,7 @@
                                                                                     <constraint firstAttribute="height" constant="29" id="ifV-Xj-mgn"/>
                                                                                 </constraints>
                                                                             </imageView>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remind" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vpn-Z5-fUe" userLabel="Time remind">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remind" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vpn-Z5-fUe" userLabel="Time Remind">
                                                                                 <rect key="frame" x="55" y="25" width="47" height="16"/>
                                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                                                                 <color key="textColor" red="0.95686274510000002" green="0.023529411760000001" blue="0.023529411760000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1302,7 +1303,7 @@
             <objects>
                 <viewController id="bYB-Z7-how" userLabel="Notes" customClass="NotesController" customModule="Do_Plan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hrv-on-J8W">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fRo-rh-ZLM" userLabel="Container">

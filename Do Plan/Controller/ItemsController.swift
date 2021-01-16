@@ -81,6 +81,26 @@ extension ItemsController: UITableViewDelegate, UITableViewDataSource {
                 cell.doneCircle.image = UIImage(systemName: "circle")
                 cell.doneCircle.tintColor = UIColor(named: Constant.Color.grayDesc)
             }
+            
+            switch item.priority {
+                case "None":
+                    cell.priorityIcon.isHidden = true
+                case "High":
+                    cell.priorityIcon.image = UIImage(systemName: "arrow.up.circle")
+                    cell.priorityIcon.tintColor = UIColor(named: "Red")
+                case "Medium":
+                    cell.priorityIcon.image = UIImage(systemName: "arrow.up.right.circle")
+                    cell.priorityIcon.tintColor = UIColor(named: "Yellow")
+                case "Low":
+                    cell.priorityIcon.image = UIImage(systemName: "arrow.down.circle")
+                    cell.priorityIcon.tintColor = UIColor(named: "Green")
+                default:
+                    cell.priorityIcon.isHidden = true
+            }
+            
+            if let safeReminder = item.reminder {
+                cell.reminderLabel.text = Date.dateFormatToString(date: safeReminder, type: .standard)
+            }
         }
     
         return cell
@@ -126,6 +146,7 @@ extension ItemsController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
         selectedItem = itemArray?[indexPath.row]
         performSegue(withIdentifier: Constant.Segue.newItem, sender: self)
     }

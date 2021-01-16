@@ -12,8 +12,7 @@ class Item: Object {
     @objc dynamic var name: String  = ""
     @objc dynamic var notes: String = ""
     @objc dynamic var priority: String = "None"
-    @objc dynamic var date: Date?
-    @objc dynamic var time: Date?
+    @objc dynamic var reminder: Date?
     @objc dynamic var done: Bool = false
     @objc dynamic var createdAt: Date?
     var parentCategory = LinkingObjects(fromType: Category.self, property: "items")
