@@ -159,7 +159,7 @@
                                         </constraints>
                                         <color key="textColor" systemColor="systemBlueColor"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" spellCheckingType="no" returnKeyType="done" textContentType="name"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="no" returnKeyType="done" textContentType="name"/>
                                         <connections>
                                             <outlet property="delegate" destination="fpo-cj-qjz" id="e5U-B8-TC1"/>
                                         </connections>

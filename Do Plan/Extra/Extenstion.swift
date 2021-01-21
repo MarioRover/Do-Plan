@@ -9,6 +9,17 @@ import UIKit
 
 // MARK: - UIFont
 
+class MyUIViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let tapGestureBackground = UITapGestureRecognizer(target: self, action: #selector(self.backgroundTapped(_:)))
+        self.view.addGestureRecognizer(tapGestureBackground)
+    }
+    @objc func backgroundTapped(_ sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
+}
+
 extension UIFont {
     
     static func shabnam(size: CGFloat, weight: Weight = .regular) -> UIFont {
@@ -117,5 +128,36 @@ extension Date {
         case date
         case timePA
         case time
+    }
+}
+
+
+extension UIImage {
+    static func systemIcon(name withName: IconName) -> UIImage? {
+        return UIImage(systemName: withName.rawValue)
+    }
+    
+    
+    enum IconName: String {
+        case arrowUpCircle = "arrow.up.circle"
+        case arrowUpRightCircle = "arrow.up.right.circle"
+        case arrowDownCircle = "arrow.down.circle"
+        case circle = "circle"
+        case checkmarkCircleFill = "checkmark.circle.fill"
+    }
+}
+
+
+extension UIColor {
+    static func customColor(color withColor: CustomColorName) -> UIColor? {
+        return UIColor(named: withColor.rawValue)
+    }
+    
+    enum CustomColorName: String {
+        case red    = "Red"
+        case yellow = "Yellow"
+        case green  = "Green"
+        case main   = "Main"
+        case grayDesc   = "GrayDesc"
     }
 }

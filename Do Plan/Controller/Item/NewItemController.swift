@@ -17,7 +17,7 @@ enum dateType {
     case time
 }
 
-class NewItemController: UIViewController {
+class NewItemController: MyUIViewController {
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var doneButton: UIButton!
@@ -43,7 +43,7 @@ class NewItemController: UIViewController {
     @IBOutlet weak var priorityPicker: UIPickerView!
     @IBOutlet weak var priorityViewtHeight: NSLayoutConstraint!
     @IBOutlet weak var priorityLabel: UILabel!
-    let priorityList = ["None","Low","Medium","High"]
+    var priorityList: [String] = []
     var isShowPriorityPicker: Bool = false
     //
     let realm = try! Realm()
@@ -55,9 +55,10 @@ class NewItemController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let tapGestureBackground = UITapGestureRecognizer(target: self, action: #selector(self.backgroundTapped(_:)))
-        self.view.addGestureRecognizer(tapGestureBackground)
-        
+        for value in Priority.allCases {
+            priorityList.append(value.rawValue)
+        }
+            
         if currentCategory != nil {
             listLabel.text = currentCategory?.name
         }
@@ -72,6 +73,7 @@ class NewItemController: UIViewController {
             textField.text = item.name
             setNotes(text: item.notes)
             priorityLabel.text = item.priority
+            priorityPicker.selectRow(priorityList.firstIndex(of: item.priority)!, inComponent: 0, animated: false)
             if let itemCreateDate = item.createdAt { setCreatedLabel(date: itemCreateDate) }
             
             if let itemDate = selectedItem?.reminder {
@@ -138,10 +140,6 @@ class NewItemController: UIViewController {
 
     @IBAction func noteViewTapped(_ sender: UITapGestureRecognizer) {
         performSegue(withIdentifier: Constant.Segue.notes, sender: self)
-    }
-
-    @objc func backgroundTapped(_ sender: UITapGestureRecognizer) {
-        self.view.endEditing(true)
     }
 
     func closePage() {

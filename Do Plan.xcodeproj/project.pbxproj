@@ -179,16 +179,32 @@
 		83BBE1FA25833FC5006C4502 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				8394CCA825891D68006AA9EB /* Component */,
 				83BBE1E725833F62006C4502 /* HomeController.swift */,
-				8394CC762583B27D006AA9EB /* ListController.swift */,
 				8394CC792583B2A8006AA9EB /* SettingController.swift */,
-				83258BC7258E745D0017A08F /* NewListController.swift */,
+				83C724F025BA0F42001A6ECC /* List */,
+				83C724EE25BA0F27001A6ECC /* Item */,
+				8394CCA825891D68006AA9EB /* Component */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		83C724EE25BA0F27001A6ECC /* Item */ = {
+			isa = PBXGroup;
+			children = (
 				834B56BA25951CC7001FF1BC /* ItemsController.swift */,
 				83618F39259909B0006DDA7C /* NewItemController.swift */,
 				83BC0818259E5F4300DC18DF /* NotesController.swift */,
 			);
-			path = Controller;
+			path = Item;
+			sourceTree = "<group>";
+		};
+		83C724F025BA0F42001A6ECC /* List */ = {
+			isa = PBXGroup;
+			children = (
+				8394CC762583B27D006AA9EB /* ListController.swift */,
+				83258BC7258E745D0017A08F /* NewListController.swift */,
+			);
+			path = List;
 			sourceTree = "<group>";
 		};
 		83D40398258A77B10074E951 /* Extra */ = {

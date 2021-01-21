@@ -128,6 +128,7 @@
                 <outlet property="itemTitle" destination="nkS-d4-NHc" id="NCk-io-rfD"/>
                 <outlet property="priorityIcon" destination="ZVi-Yf-37B" id="F7G-0N-yuY"/>
                 <outlet property="reminderLabel" destination="Pch-cy-gxg" id="QhI-PF-IgZ"/>
+                <outlet property="reminderView" destination="bNf-py-pqT" id="2I4-76-bDD"/>
             </connections>
             <point key="canvasLocation" x="163.04347826086959" y="130.24553571428572"/>
         </tableViewCell>

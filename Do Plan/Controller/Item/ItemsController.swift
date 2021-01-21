@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-class ItemsController: UIViewController {
+class ItemsController: MyUIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -26,7 +26,6 @@ class ItemsController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = pageTitle
-        
         tableView.register(UINib(nibName: Constant.Identifier.itemCell, bundle: nil), forCellReuseIdentifier: Constant.Identifier.itemCell)
     }
     
@@ -65,41 +64,49 @@ extension ItemsController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constant.Identifier.itemCell, for: indexPath) as! ItemCell
+        let cellTitle     = cell.itemTitle
+        let cellPriority  = cell.priorityIcon
+        let cellDoneIcon  = cell.doneCircle
+        let reminderLabel = cell.reminderLabel
+        let reminderView  = cell.reminderView
         
         if let item = itemArray?[indexPath.row] {
             // Create Custom Gusture for done image
             let recognizer = CustomUITapGesture(target: self, action: #selector(doneCirclePressed(sender:)))
             recognizer.index = indexPath.row
-            cell.doneCircle.addGestureRecognizer(recognizer)
+            cellDoneIcon?.addGestureRecognizer(recognizer)
             
-            cell.itemTitle.text = item.name
+            cellTitle?.text = item.name
             // Check Done Status
             if item.done == true {
-                cell.doneCircle.image = UIImage(systemName: "checkmark.circle.fill")
-                cell.doneCircle.tintColor = UIColor(named: Constant.Color.main)
+                cellDoneIcon?.image = UIImage.systemIcon(name: .checkmarkCircleFill)
+                cellDoneIcon?.tintColor = UIColor.customColor(color: .main)
             } else {
-                cell.doneCircle.image = UIImage(systemName: "circle")
-                cell.doneCircle.tintColor = UIColor(named: Constant.Color.grayDesc)
+                cellDoneIcon?.image = UIImage.systemIcon(name: .circle)
+                cellDoneIcon?.tintColor = UIColor.customColor(color: .grayDesc)
             }
             
             switch item.priority {
-                case "None":
-                    cell.priorityIcon.isHidden = true
-                case "High":
-                    cell.priorityIcon.image = UIImage(systemName: "arrow.up.circle")
-                    cell.priorityIcon.tintColor = UIColor(named: "Red")
-                case "Medium":
-                    cell.priorityIcon.image = UIImage(systemName: "arrow.up.right.circle")
-                    cell.priorityIcon.tintColor = UIColor(named: "Yellow")
-                case "Low":
-                    cell.priorityIcon.image = UIImage(systemName: "arrow.down.circle")
-                    cell.priorityIcon.tintColor = UIColor(named: "Green")
+                case Priority.None.rawValue:
+                        cell.priorityIcon.isHidden = true
+                case Priority.High.rawValue:
+                        cellPriority?.image = UIImage.systemIcon(name: .arrowUpCircle)
+                        cellPriority?.tintColor = UIColor.customColor(color: .red)
+                case Priority.Medium.rawValue:
+                        cellPriority?.image = UIImage.systemIcon(name: .arrowUpRightCircle)
+                        cellPriority?.tintColor = UIColor.customColor(color: .yellow)
+                case Priority.Low.rawValue:
+                        cellPriority?.image = UIImage.systemIcon(name: .arrowDownCircle)
+                        cellPriority?.tintColor = UIColor.customColor(color: .green)
                 default:
                     cell.priorityIcon.isHidden = true
             }
             
             if let safeReminder = item.reminder {
-                cell.reminderLabel.text = Date.dateFormatToString(date: safeReminder, type: .standard)
+                reminderView?.isHidden = false
+                reminderLabel?.text = Date.dateFormatToString(date: safeReminder, type: .standard)
+            } else {
+                reminderView?.isHidden = true
             }
         }
     
@@ -179,4 +186,3 @@ extension ItemsController: NewItemDelegate {
 class CustomUITapGesture: UITapGestureRecognizer {
     var index: Int?
 }
-

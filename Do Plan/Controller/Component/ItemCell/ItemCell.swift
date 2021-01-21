@@ -13,11 +13,12 @@ class ItemCell: UITableViewCell {
     @IBOutlet weak var doneCircle: UIImageView!
     @IBOutlet weak var priorityIcon: UIImageView!
     @IBOutlet weak var reminderLabel: UILabel!
+    @IBOutlet weak var reminderView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.selectionStyle = .none
         // Initialization code
+        self.selectionStyle = .none
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
