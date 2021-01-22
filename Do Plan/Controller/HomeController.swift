@@ -22,6 +22,19 @@ class HomeController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         totalItems.text = String(realm.objects(Item.self).count)
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == ItemsController.identifier {
+            let vc = segue.destination as! ItemsController
+            vc.pageTitle = "All"
+            vc.loadAllItems()
+            vc.isHeaderHidden = false
+        }
+    }
+    
+    @IBAction func tappedAllItems(_ sender: UITapGestureRecognizer) {
+        performSegue(withIdentifier: ItemsController.identifier, sender: self)
+    }
 }

@@ -9,13 +9,16 @@ import UIKit
 import RealmSwift
 
 class ItemsController: MyUIViewController {
+    static let identifier = "itemsVCIdentifier"
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var headerView: UIView!
     
     var pageTitle: String?
     var itemArray: Results<Item>?
     let realm = try! Realm()
     var selectedItem: Item?
+    var isHeaderHidden: Bool = true
     var currentCategory: Category? {
         didSet {
             loadItems()
@@ -27,12 +30,15 @@ class ItemsController: MyUIViewController {
         super.viewDidLoad()
         self.title = pageTitle
         tableView.register(UINib(nibName: Constant.Identifier.itemCell, bundle: nil), forCellReuseIdentifier: Constant.Identifier.itemCell)
+        
+        headerView.isHidden = isHeaderHidden
     }
-    
-    @IBAction func addButtonPressed(_ sender: UITapGestureRecognizer) {
-        performSegue(withIdentifier: Constant.Segue.newItem, sender: self)
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
-    
+ 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constant.Segue.newItem {
             let vc = segue.destination as! NewItemController
@@ -46,11 +52,25 @@ class ItemsController: MyUIViewController {
         }
     }
     
+    @IBAction func addButtonPressed(_ sender: UITapGestureRecognizer) {
+        performSegue(withIdentifier: Constant.Segue.newItem, sender: self)
+    }
+    
+    @IBAction func backButtonPressed(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
     func loadItems(doReload: Bool = false) {
         itemArray = currentCategory?.items.sorted(byKeyPath: "createdAt", ascending: true)
         if doReload {
             tableView.reloadData()
         }
+    }
+    
+    func loadAllItems() {
+        itemArray = realm.objects(Item.self).sorted(byKeyPath: "createdAt", ascending: true)
+        tableView?.reloadData()
     }
 }
 
@@ -158,19 +178,6 @@ extension ItemsController: UITableViewDelegate, UITableViewDataSource {
         performSegue(withIdentifier: Constant.Segue.newItem, sender: self)
     }
     
-}
-
-// MARK: - SearchBar
-
-extension ItemsController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.isEmpty {
-            loadItems(doReload: true)
-        } else {
-            itemArray = itemArray?.filter("name CONTAINS[cd] %@", searchText).sorted(byKeyPath: "createdAt", ascending: true)
-            tableView.reloadData()
-        }
-    }
 }
 
 // MARK: - NewItemDelegate
