@@ -39,29 +39,44 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lXD-e7-egY" userLabel="RightContainer">
                                 <rect key="frame" x="148" y="0.0" width="148" height="39"/>
                                 <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="xcB-3B-p9B">
+                                        <rect key="frame" x="40" y="0.0" width="85.5" height="39"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ES4-yt-8B7">
+                                                <rect key="frame" x="0.0" y="11.5" width="29.5" height="16"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                                <color key="textColor" name="Yellow"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2ij-bX-sM4">
+                                                <rect key="frame" x="40.5" y="15.5" width="45" height="8"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="8" id="Tyt-UT-BI1"/>
+                                                </constraints>
+                                                <color key="progressTintColor" name="Yellow"/>
+                                                <color key="trackTintColor" name="GrayDark2"/>
+                                            </progressView>
+                                        </subviews>
+                                    </stackView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Nga-1C-PA2">
                                         <rect key="frame" x="135.5" y="11.5" width="12.5" height="16.5"/>
                                         <color key="tintColor" name="GrayDesc"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Szr-oo-w4c">
-                                        <rect key="frame" x="109" y="8" width="11.5" height="23"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                        <color key="textColor" name="GrayWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="Szr-oo-w4c" firstAttribute="centerY" secondItem="lXD-e7-egY" secondAttribute="centerY" id="amd-g7-Gxt"/>
-                                    <constraint firstItem="Nga-1C-PA2" firstAttribute="leading" secondItem="Szr-oo-w4c" secondAttribute="trailing" constant="15" id="goe-3g-Ajm"/>
+                                    <constraint firstAttribute="bottom" secondItem="xcB-3B-p9B" secondAttribute="bottom" id="Dsf-7m-i5X"/>
+                                    <constraint firstItem="xcB-3B-p9B" firstAttribute="top" secondItem="lXD-e7-egY" secondAttribute="top" id="Lya-6d-lX7"/>
+                                    <constraint firstItem="Nga-1C-PA2" firstAttribute="leading" secondItem="xcB-3B-p9B" secondAttribute="trailing" constant="10" id="V6D-ak-Hgm"/>
                                     <constraint firstAttribute="trailing" secondItem="Nga-1C-PA2" secondAttribute="trailing" id="jfM-d3-LEk"/>
+                                    <constraint firstItem="xcB-3B-p9B" firstAttribute="leading" secondItem="lXD-e7-egY" secondAttribute="leading" constant="40" id="my5-RO-Vcc"/>
                                     <constraint firstItem="Nga-1C-PA2" firstAttribute="centerY" secondItem="lXD-e7-egY" secondAttribute="centerY" id="zrk-Sl-ZgZ"/>
                                 </constraints>
                             </view>
                         </subviews>
                     </stackView>
                 </subviews>
-                <color key="backgroundColor" name="Cell"/>
+                <color key="backgroundColor" name="MiddleDark"/>
                 <constraints>
                     <constraint firstItem="wri-16-CpQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="3RA-NS-hSd"/>
                     <constraint firstItem="wri-16-CpQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="WMO-Vs-lob"/>
@@ -71,7 +86,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="numberItems" destination="Szr-oo-w4c" id="Hd9-jG-ggW"/>
+                <outlet property="precentLabel" destination="ES4-yt-8B7" id="qPu-Kt-kPu"/>
+                <outlet property="progressBar" destination="2ij-bX-sM4" id="8gr-cn-lbN"/>
                 <outlet property="titleLabel" destination="JsV-d2-WAG" id="8ps-fp-mLC"/>
             </connections>
             <point key="canvasLocation" x="115.94202898550725" y="128.90625"/>
@@ -82,14 +98,17 @@
         <namedColor name="AccentColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="Cell">
-            <color red="0.039000000804662704" green="0.23899999260902405" blue="0.38400000333786011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="GrayDark2">
+            <color red="0.18799999356269836" green="0.20800000429153442" blue="0.22400000691413879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="GrayDesc">
             <color red="0.59600001573562622" green="0.59600001573562622" blue="0.61599999666213989" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="GrayWhite">
-            <color red="0.84700000286102295" green="0.84700000286102295" blue="0.84700000286102295" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="MiddleDark">
+            <color red="0.125" green="0.13300000131130219" blue="0.14499999582767487" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Yellow">
+            <color red="1" green="0.86699998378753662" blue="0.34900000691413879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

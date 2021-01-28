@@ -10,7 +10,8 @@ import UIKit
 class CategoryCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var numberItems: UILabel!
+    @IBOutlet weak var precentLabel: UILabel!
+    @IBOutlet weak var progressBar: UIProgressView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -18,7 +19,7 @@ class CategoryCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
 }

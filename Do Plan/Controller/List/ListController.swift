@@ -78,9 +78,26 @@ extension ListController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: Constant.Identifier.categoryCell, for: indexPath) as! CategoryCell
          
-        
         cell.titleLabel.text  = listArray?[indexPath.row].name
-        cell.numberItems.text = String(listArray?[indexPath.row].items.count ?? 0)
+        
+        if let items = listArray?[indexPath.row].items {
+            
+            var doneCount = 0
+            
+            for item in items {
+                if item.done {
+                    doneCount += 1
+                }
+            }
+            
+            let result = Double(doneCount) / Double(items.count)
+            let roundResult = Float(String(format: "%.2f", result))!
+            
+            cell.precentLabel.text = "\(String(Int(roundResult * 100)))%"
+            cell.progressBar.progress = roundResult
+        }
+        
+        
             
         return cell
     }

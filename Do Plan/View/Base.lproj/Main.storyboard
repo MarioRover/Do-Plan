@@ -14,22 +14,22 @@
             <objects>
                 <viewController id="Dgc-eE-ziM" userLabel="List" customClass="ListController" customModule="Do_Plan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qaQ-M0-xmL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fes-XK-Bzm" userLabel="Container">
                                 <rect key="frame" x="13" y="20" width="388" height="705"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WLF-nj-2bh">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WLF-nj-2bh">
                                         <rect key="frame" x="0.0" y="0.0" width="388" height="705"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="separatorColor" name="GrayDesc"/>
+                                        <color key="separatorColor" name="GrayDark"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" id="vRm-Ed-Y6E" customClass="CategoryCell" customModule="Do_Plan" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="388" height="44"/>
+                                                <rect key="frame" x="0.0" y="28" width="388" height="43.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vRm-Ed-Y6E" id="pQi-kX-q9J">
-                                                    <rect key="frame" x="0.0" y="0.0" width="388" height="44"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="388" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </tableViewCellContentView>
                                             </tableViewCell>
@@ -110,7 +110,7 @@
             <objects>
                 <viewController id="fpo-cj-qjz" userLabel="New List" customClass="NewListController" customModule="Do_Plan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nwi-KD-qAB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1rL-dj-EAT" userLabel="Container">
@@ -201,14 +201,14 @@
             <objects>
                 <viewController id="CCK-2b-V7V" userLabel="Items" customClass="ItemsController" customModule="Do_Plan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zHY-m1-naS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Qw-aT-a4h" userLabel="Container">
-                                <rect key="frame" x="13" y="20" width="388" height="788"/>
+                                <rect key="frame" x="13" y="20" width="388" height="705"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dcC-LV-1ZO">
-                                        <rect key="frame" x="0.0" y="0.0" width="388" height="788"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="388" height="705"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kGu-d6-S33" userLabel="Header">
                                                 <rect key="frame" x="0.0" y="0.0" width="388" height="50"/>
@@ -242,7 +242,7 @@
                                                 </constraints>
                                             </view>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HNC-it-VWw">
-                                                <rect key="frame" x="0.0" y="50" width="388" height="738"/>
+                                                <rect key="frame" x="0.0" y="50" width="388" height="655"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="separatorColor" name="GrayDark"/>
                                                 <prototypes>
@@ -277,7 +277,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kyr-08-0fP" userLabel="AddButton" customClass="CustomUIView" customModule="Do_Plan" customModuleProvider="target">
-                                <rect key="frame" x="335" y="729" width="55" height="55"/>
+                                <rect key="frame" x="335" y="646" width="55" height="55"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Uo5-of-vK0">
                                         <rect key="frame" x="15" y="14.5" width="25" height="26"/>
@@ -336,7 +336,7 @@
             <objects>
                 <viewController id="HGK-PC-9xB" userLabel="Home" customClass="HomeController" customModule="Do_Plan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iEV-Uq-peO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V9N-YZ-rkQ" userLabel="Container">
@@ -654,7 +654,7 @@
             <objects>
                 <viewController id="Zgn-2Z-BG4" userLabel="Setting" customClass="SettingController" customModule="Do_Plan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2b9-El-495">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Ycq-J0-WfC"/>
                         <color key="backgroundColor" name="MiddleDark"/>
@@ -714,7 +714,7 @@
             <objects>
                 <viewController id="ceF-Xx-gbF" customClass="NewItemController" customModule="Do_Plan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mhn-w3-Ycr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1146"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d1U-yx-t15">
@@ -1340,7 +1340,7 @@
             <objects>
                 <viewController id="bYB-Z7-how" userLabel="Notes" customClass="NotesController" customModule="Do_Plan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hrv-on-J8W">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fRo-rh-ZLM" userLabel="Container">
@@ -1429,7 +1429,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="aSn-O2-pxb"/>
+        <segue reference="DNh-vZ-1sa"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>
