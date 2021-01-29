@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-class ItemsController: MyUIViewController {
+class ItemsController: UIViewController {
     static let identifier = "itemsVCIdentifier"
     
     @IBOutlet weak var tableView: UITableView!
