@@ -13,6 +13,7 @@
 		83258BCB25937A6E0017A08F /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83258BCA25937A6E0017A08F /* Category.swift */; };
 		83258BCE25937A800017A08F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83258BCD25937A800017A08F /* Item.swift */; };
 		834B56BB25951CC7001FF1BC /* ItemsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834B56BA25951CC7001FF1BC /* ItemsController.swift */; };
+		835BA7C325C46D7C0009F73A /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835BA7C225C46D7C0009F73A /* LocalNotificationManager.swift */; };
 		83618F3225979CD6006DDA7C /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83618F3025979CD6006DDA7C /* ItemCell.swift */; };
 		83618F3325979CD6006DDA7C /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83618F3125979CD6006DDA7C /* ItemCell.xib */; };
 		83618F3A259909B0006DDA7C /* NewItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83618F39259909B0006DDA7C /* NewItemController.swift */; };
@@ -43,6 +44,7 @@
 		83258BCA25937A6E0017A08F /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		83258BCD25937A800017A08F /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		834B56BA25951CC7001FF1BC /* ItemsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsController.swift; sourceTree = "<group>"; };
+		835BA7C225C46D7C0009F73A /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		83618F3025979CD6006DDA7C /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		83618F3125979CD6006DDA7C /* ItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
 		83618F39259909B0006DDA7C /* NewItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemController.swift; sourceTree = "<group>"; };
@@ -98,6 +100,16 @@
 			path = CategoryCell;
 			sourceTree = "<group>";
 		};
+		835BA7C025C46D230009F73A /* Extenstion */ = {
+			isa = PBXGroup;
+			children = (
+				83BBE1E325833F62006C4502 /* AppDelegate.swift */,
+				83BBE1E525833F62006C4502 /* SceneDelegate.swift */,
+				835BA7C225C46D7C0009F73A /* LocalNotificationManager.swift */,
+			);
+			path = Extenstion;
+			sourceTree = "<group>";
+		};
 		83618F3525979CE1006DDA7C /* ItemCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,8 +157,7 @@
 		83BBE1E225833F62006C4502 /* Do Plan */ = {
 			isa = PBXGroup;
 			children = (
-				83BBE1E325833F62006C4502 /* AppDelegate.swift */,
-				83BBE1E525833F62006C4502 /* SceneDelegate.swift */,
+				835BA7C025C46D230009F73A /* Extenstion */,
 				83BBE1FA25833FC5006C4502 /* Controller */,
 				83BBE1F925833FB0006C4502 /* View */,
 				83BBE1F825833FA8006C4502 /* Model */,
@@ -368,6 +379,7 @@
 				83258B9D258CFF700017A08F /* CategoryCell.swift in Sources */,
 				83258BCE25937A800017A08F /* Item.swift in Sources */,
 				83BC0819259E5F4300DC18DF /* NotesController.swift in Sources */,
+				835BA7C325C46D7C0009F73A /* LocalNotificationManager.swift in Sources */,
 				83BBE1E625833F62006C4502 /* SceneDelegate.swift in Sources */,
 				8394CC772583B27D006AA9EB /* ListController.swift in Sources */,
 				83D40394258A77510074E951 /* Extenstion.swift in Sources */,

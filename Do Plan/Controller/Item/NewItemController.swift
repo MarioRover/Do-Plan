@@ -161,15 +161,22 @@ class NewItemController: MyUIViewController {
         if let textTitle = textField.text, !textTitle.isEmpty { title = textTitle }
         if let textNotes = notesText.text, !textNotes.isEmpty { notes = textNotes }
         if let textPriority = priorityLabel.text { priority = textPriority }
+        let reminder = dateSwitch.isOn ? finalDate : nil
         
         if !title.isEmpty && currentCategory != nil {
             if selectedItem != nil {
+                
+                if reminder != selectedItem?.reminder , let safeReminder = reminder {
+                    print("⚠️ Update reminder")
+                    LocalNotificationManager.setNotification(date: safeReminder, repeats: false, title: title, body: "")
+                }
+                
                 do {
                     try realm.write {
                         selectedItem?.name     = title
                         selectedItem?.notes    = notes
                         selectedItem?.priority = priority
-                        selectedItem?.reminder = dateSwitch.isOn ? finalDate : nil
+                        selectedItem?.reminder = reminder
                     }
                 } catch {
                     print("❌ Error in update item \(error)")
@@ -181,14 +188,20 @@ class NewItemController: MyUIViewController {
                         newItem.name     = title
                         newItem.notes    = notes
                         newItem.priority = priority
-                        newItem.reminder = dateSwitch.isOn ? finalDate : nil
+                        newItem.reminder = reminder
                         newItem.createdAt = Date()
                         currentCategory?.items.append(newItem)
                     }
+                    
+                    if let safeReminder = reminder {
+                        LocalNotificationManager.setNotification(date: safeReminder, repeats: false, title: title, body: "")
+                    }
+                    
                 } catch {
                     print("❌ Error in save item \(error)")
                 }
             }
+            
             delegate?.fetchFreshList()
             closePage()
         }

@@ -82,7 +82,9 @@ extension ListController: UITableViewDelegate, UITableViewDataSource {
         
         if let items = listArray?[indexPath.row].items {
             
-            var doneCount = 0
+            var doneCount: Int = 0
+            var result: Double = 0
+            var roundResult: Float = 0
             
             for item in items {
                 if item.done {
@@ -90,8 +92,10 @@ extension ListController: UITableViewDelegate, UITableViewDataSource {
                 }
             }
             
-            let result = Double(doneCount) / Double(items.count)
-            let roundResult = Float(String(format: "%.2f", result))!
+            if items.count > 0 {
+                result = Double(doneCount) / Double(items.count)
+                roundResult = Float(String(format: "%.2f", result))!
+            }
             
             cell.precentLabel.text = "\(String(Int(roundResult * 100)))%"
             cell.progressBar.progress = roundResult
@@ -107,7 +111,6 @@ extension ListController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO: - send data to controller
         selectedList = listArray?[indexPath.row]
         performSegue(withIdentifier: Constant.Segue.items, sender: self)
     }
