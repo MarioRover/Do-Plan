@@ -116,7 +116,7 @@ extension Date {
             case .timePA:
                 dateFormat = "h:mm a"
             case .standard:
-                dateFormat = "E, d MMM yyyy h:mm a"
+                dateFormat = "E, d MMM h:mm a"
         }
     
         dateFormatter.dateFormat = dateFormat
@@ -159,5 +159,6 @@ extension UIColor {
         case green  = "Green"
         case main   = "Main"
         case grayDesc   = "GrayDesc"
+        case grayWhite = "GrayWhite"
     }
 }

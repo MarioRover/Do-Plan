@@ -11,7 +11,9 @@ import RealmSwift
 class HomeController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var totalItems: UILabel!
+    @IBOutlet weak var allLabel: UILabel!
+    @IBOutlet weak var todayLabel: UILabel!
+    @IBOutlet weak var scheduledLabel: UILabel!
     
     let realm = try! Realm()
     
@@ -21,7 +23,23 @@ class HomeController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        totalItems.text = String(realm.objects(Item.self).count)
+    
+        let allDoItems = realm.objects(Item.self).filter(NSPredicate(format: "done == false"))
+        let allReminderItems = allDoItems.filter(NSPredicate(format: "reminder != null"))
+        var countTodayTask = 0
+        
+        allLabel.text = String(allDoItems.count)
+        scheduledLabel.text = String(allReminderItems.count)
+        
+        for item in allReminderItems {
+            if let itemRemider = item.reminder {
+                if Calendar.current.isDateInToday(itemRemider) {
+                    countTodayTask += 1
+                }
+            }
+        }
+        todayLabel.text = String(countTodayTask)
+        
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     

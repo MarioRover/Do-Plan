@@ -61,15 +61,16 @@ class ItemsController: UIViewController {
     }
     
     
-    func loadItems(doReload: Bool = false) {
-        itemArray = currentCategory?.items.sorted(byKeyPath: "createdAt", ascending: true)
+    private func loadItems(doReload: Bool = false) {
+        itemArray = currentCategory?.items.sorted(byKeyPath: "done", ascending: true)
+        
         if doReload {
             tableView.reloadData()
         }
     }
     
     func loadAllItems() {
-        itemArray = realm.objects(Item.self).sorted(byKeyPath: "createdAt", ascending: true)
+        itemArray = realm.objects(Item.self).filter(NSPredicate(format: "done == false")).sorted(byKeyPath: "createdAt", ascending: true)
         tableView?.reloadData()
     }
 }
@@ -101,11 +102,14 @@ extension ItemsController: UITableViewDelegate, UITableViewDataSource {
             if item.done == true {
                 cellDoneIcon?.image = UIImage.systemIcon(name: .checkmarkCircleFill)
                 cellDoneIcon?.tintColor = UIColor.customColor(color: .main)
+                cellTitle?.textColor = UIColor.customColor(color: .grayDesc)
             } else {
                 cellDoneIcon?.image = UIImage.systemIcon(name: .circle)
                 cellDoneIcon?.tintColor = UIColor.customColor(color: .grayDesc)
+                cellTitle?.textColor = .white
             }
             
+            // Check Priority
             switch item.priority {
                 case Priority.None.rawValue:
                         cell.priorityIcon.isHidden = true
@@ -122,9 +126,16 @@ extension ItemsController: UITableViewDelegate, UITableViewDataSource {
                     cell.priorityIcon.isHidden = true
             }
             
-            if let safeReminder = item.reminder {
+            // Check Reminder
+            if let safeReminder = item.reminder, !item.done {
                 reminderView?.isHidden = false
                 reminderLabel?.text = Date.dateFormatToString(date: safeReminder, type: .standard)
+                
+                if safeReminder < Date() {
+                    reminderLabel?.textColor = UIColor.customColor(color: .red)
+                } else {
+                    reminderLabel?.textColor = UIColor.customColor(color: .grayWhite)
+                }
             } else {
                 reminderView?.isHidden = true
             }
@@ -149,7 +160,7 @@ extension ItemsController: UITableViewDelegate, UITableViewDataSource {
             }
         }
     }
-    
+
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
             if let item = self.itemArray?[indexPath.row] {
