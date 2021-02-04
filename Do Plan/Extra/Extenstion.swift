@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 // MARK: - UIFont
 
@@ -162,3 +163,11 @@ extension UIColor {
         case grayWhite = "GrayWhite"
     }
 }
+
+extension Results {
+    func toArray() -> [Element] {
+      return compactMap {
+        $0
+      }
+    }
+ }

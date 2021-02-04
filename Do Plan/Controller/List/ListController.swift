@@ -23,8 +23,8 @@ class ListController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        tableView.register(UINib(nibName: Constant.Identifier.categoryCell, bundle: nil), forCellReuseIdentifier: Constant.Identifier.categoryCell)
+//        print(realmFilePath)
+        tableView.register(UINib(nibName: CategoryCell.identifier, bundle: nil), forCellReuseIdentifier: CategoryCell.identifier)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,8 +47,7 @@ class ListController: UIViewController {
             let vc = segue.destination as! ItemsController
 
             if selectedList != nil {
-                vc.pageTitle = selectedList?.name
-                vc.currentCategory = selectedList
+                vc.loadItems(itemType: .category, category: selectedList)
                 selectedList = nil
             }
                         
@@ -76,7 +75,7 @@ extension ListController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constant.Identifier.categoryCell, for: indexPath) as! CategoryCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCell.identifier, for: indexPath) as! CategoryCell
          
         cell.titleLabel.text  = listArray?[indexPath.row].name
         

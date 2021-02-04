@@ -12,26 +12,22 @@ class ItemsController: UIViewController {
     static let identifier = "itemsVCIdentifier"
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var addButton: CustomUIView!
     
-    var pageTitle: String?
-    var itemArray: Results<Item>?
-    let realm = try! Realm()
-    var selectedItem: Item?
-    var isHeaderHidden: Bool = true
-    var currentCategory: Category? {
-        didSet {
-            loadItems()
-        }
-    }
+    private let realm = try! Realm()
+    private var itemArray: [Item]?
+    private var selectedItem: Item?
+    private var currentCategory: Category?
+    private var customNavigation = (show: true, title: "title")
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = pageTitle
-        tableView.register(UINib(nibName: Constant.Identifier.itemCell, bundle: nil), forCellReuseIdentifier: Constant.Identifier.itemCell)
+        tableView.register(UINib(nibName: ItemCell.identifier, bundle: nil), forCellReuseIdentifier: ItemCell.identifier)
+        navigationBar.isHidden = customNavigation.show
+        navigationBar.topItem?.title = customNavigation.title
         
-        headerView.isHidden = isHeaderHidden
+        addButton.isHidden = customNavigation.show
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -55,24 +51,6 @@ class ItemsController: UIViewController {
     @IBAction func addButtonPressed(_ sender: UITapGestureRecognizer) {
         performSegue(withIdentifier: Constant.Segue.newItem, sender: self)
     }
-    
-    @IBAction func backButtonPressed(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    
-    private func loadItems(doReload: Bool = false) {
-        itemArray = currentCategory?.items.sorted(byKeyPath: "done", ascending: true)
-        
-        if doReload {
-            tableView.reloadData()
-        }
-    }
-    
-    func loadAllItems() {
-        itemArray = realm.objects(Item.self).filter(NSPredicate(format: "done == false")).sorted(byKeyPath: "createdAt", ascending: true)
-        tableView?.reloadData()
-    }
 }
 
 
@@ -84,12 +62,13 @@ extension ItemsController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constant.Identifier.itemCell, for: indexPath) as! ItemCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ItemCell.identifier, for: indexPath) as! ItemCell
         let cellTitle     = cell.itemTitle
         let cellPriority  = cell.priorityIcon
         let cellDoneIcon  = cell.doneCircle
         let reminderLabel = cell.reminderLabel
         let reminderView  = cell.reminderView
+        
         
         if let item = itemArray?[indexPath.row] {
             // Create Custom Gusture for done image
@@ -154,7 +133,7 @@ extension ItemsController: UITableViewDelegate, UITableViewDataSource {
                 try realm.write {
                     item.done = !item.done
                 }
-                loadItems(doReload: true)
+                loadItems(itemType: .category)
             } catch {
                 print("❌ Error in doneCirclePressed \(error)")
             }
@@ -186,16 +165,56 @@ extension ItemsController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         selectedItem = itemArray?[indexPath.row]
+        currentCategory = itemArray?[indexPath.row].parentCategory[0]
         performSegue(withIdentifier: Constant.Segue.newItem, sender: self)
     }
     
+}
+
+// MARK: - Show List From Home
+
+extension ItemsController {    
+    @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    public func loadItems(itemType: Constant.TypeOfItems, category: Category? = nil) -> Void {
+        if itemType == .category {
+            if let safeCategory = category {
+                itemArray = safeCategory.items.sorted(byKeyPath: "done", ascending: true).toArray()
+                self.title = category?.name
+            }
+        } else {
+            customNavigation = (show: false, title: itemType.rawValue)
+            
+            switch itemType {
+                case .today:
+                    var result = [Item]()
+                    let items = realm.objects(Item.self).filter(NSPredicate(format: "done == false && reminder != nil")).toArray()
+                    for item in items {
+                        if let itemReminder = item.reminder {
+                            if Calendar.current.isDateInToday(itemReminder) {
+                                result.append(item)
+                            }
+                        }
+                    }
+                    itemArray = result
+                    
+                case .scheduled:
+                    itemArray = realm.objects(Item.self).filter(NSPredicate(format: "done == false && reminder != nil")).toArray()
+                default:
+                    itemArray = realm.objects(Item.self).filter(NSPredicate(format: "done == false")).sorted(byKeyPath: "createdAt", ascending: true).toArray()
+            }
+        }
+        tableView?.reloadData()
+    }
 }
 
 // MARK: - NewItemDelegate
 
 extension ItemsController: NewItemDelegate {
     func fetchFreshList() {
-        loadItems(doReload: true)
+        loadItems(itemType: .category)
     }
 }
 

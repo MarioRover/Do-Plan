@@ -8,6 +8,7 @@
 import UIKit
 
 class ItemCell: UITableViewCell {
+    static let identifier = "ItemCell"
 
     @IBOutlet weak var itemTitle: UILabel!
     @IBOutlet weak var doneCircle: UIImageView!

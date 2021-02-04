@@ -8,6 +8,7 @@
 import UIKit
 
 class CategoryCell: UITableViewCell {
+    static let identifier = "CategoryCell"
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var precentLabel: UILabel!

@@ -15,7 +15,8 @@ class HomeController: UIViewController {
     @IBOutlet weak var todayLabel: UILabel!
     @IBOutlet weak var scheduledLabel: UILabel!
     
-    let realm = try! Realm()
+    private let realm = try! Realm()
+    private var itemBoxTapped: Constant.TypeOfItems?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,13 +47,24 @@ class HomeController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == ItemsController.identifier {
             let vc = segue.destination as! ItemsController
-            vc.pageTitle = "All"
-            vc.loadAllItems()
-            vc.isHeaderHidden = false
+            vc.loadItems(itemType: itemBoxTapped!)
         }
     }
     
-    @IBAction func tappedAllItems(_ sender: UITapGestureRecognizer) {
+    @IBAction func allTapped(_ sender: UITapGestureRecognizer) {
+        itemBoxTapped = .all
+        performItemsSegue()
+    }
+    @IBAction func todayTapped(_ sender: UITapGestureRecognizer) {
+        itemBoxTapped = .today
+        performItemsSegue()
+    }
+    @IBAction func scheduledTapped(_ sender: UITapGestureRecognizer) {
+        itemBoxTapped = .scheduled
+        performItemsSegue()
+    }
+    
+    private func performItemsSegue() {
         performSegue(withIdentifier: ItemsController.identifier, sender: self)
     }
 }
