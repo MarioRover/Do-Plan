@@ -13,6 +13,7 @@ protocol NewListDelegate: class {
 }
 
 class NewListController: UIViewController {
+    static let identifier = "newListVCIdentifier"
 
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var textField: UITextField!

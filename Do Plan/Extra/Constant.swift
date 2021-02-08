@@ -16,13 +16,6 @@ struct Constant {
         static let grayDark   = "GrayDark"
         static let grayDesc   = "GrayDesc"
     }
-
-    struct Segue {
-        static let newList = "NewListSegue"
-        static let items   = "ItemsSegue"
-        static let newItem = "NewItemSegue"
-        static let notes    = "NotesSegue"
-    }
     
     enum TypeOfItems: String {
         case all = "All"

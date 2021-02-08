@@ -36,7 +36,7 @@ class ItemsController: UIViewController {
     }
  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constant.Segue.newItem {
+        if segue.identifier == NewItemController.identifier {
             let vc = segue.destination as! NewItemController
             vc.delegate = self
             vc.currentCategory = currentCategory
@@ -49,7 +49,7 @@ class ItemsController: UIViewController {
     }
     
     @IBAction func addButtonPressed(_ sender: UITapGestureRecognizer) {
-        performSegue(withIdentifier: Constant.Segue.newItem, sender: self)
+        performSegue(withIdentifier: NewItemController.identifier, sender: self)
     }
 }
 
@@ -166,7 +166,7 @@ extension ItemsController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: false)
         selectedItem = itemArray?[indexPath.row]
         currentCategory = itemArray?[indexPath.row].parentCategory[0]
-        performSegue(withIdentifier: Constant.Segue.newItem, sender: self)
+        performSegue(withIdentifier: NewItemController.identifier, sender: self)
     }
     
 }

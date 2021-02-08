@@ -12,6 +12,7 @@ protocol NotesDelegate: class {
 }
 
 class NotesController: UIViewController {
+    static let identifier = "notesVCIdentifier"
 
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var textView: UITextView!

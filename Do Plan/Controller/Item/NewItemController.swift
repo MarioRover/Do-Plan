@@ -18,6 +18,7 @@ enum dateType {
 }
 
 class NewItemController: MyUIViewController {
+    static let identifier = "newItemsVCIdentifier"
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var doneButton: UIButton!
@@ -120,7 +121,7 @@ class NewItemController: MyUIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constant.Segue.notes {
+        if segue.identifier == NotesController.identifier{
             let vc = segue.destination as! NotesController
             vc.delegate = self
             if let text = notesText.text, !text.isEmpty {
@@ -139,7 +140,7 @@ class NewItemController: MyUIViewController {
     }
 
     @IBAction func noteViewTapped(_ sender: UITapGestureRecognizer) {
-        performSegue(withIdentifier: Constant.Segue.notes, sender: self)
+        performSegue(withIdentifier: NotesController.identifier, sender: self)
     }
 
     func closePage() {

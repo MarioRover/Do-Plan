@@ -33,7 +33,7 @@ class ListController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constant.Segue.newList {
+        if segue.identifier == NewListController.identifier {
             let vc = segue.destination as! NewListController
             vc.delegate = self
 
@@ -43,7 +43,7 @@ class ListController: UIViewController {
             }
         }
         
-        if segue.identifier == Constant.Segue.items {
+        if segue.identifier == ItemsController.identifier {
             let vc = segue.destination as! ItemsController
 
             if selectedList != nil {
@@ -55,7 +55,7 @@ class ListController: UIViewController {
     }
     
     @IBAction func addButtonPressed(_ sender: UITapGestureRecognizer) {
-        performSegue(withIdentifier: Constant.Segue.newList, sender: self)
+        performSegue(withIdentifier: NewListController.identifier, sender: self)
     }
     
     func loadList() {
@@ -111,7 +111,7 @@ extension ListController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedList = listArray?[indexPath.row]
-        performSegue(withIdentifier: Constant.Segue.items, sender: self)
+        performSegue(withIdentifier: ItemsController.identifier, sender: self)
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -141,7 +141,7 @@ extension ListController: UITableViewDelegate, UITableViewDataSource {
         let info = UIContextualAction(style: .normal, title: "Info") { (action, view, completionHandler) in
             
             self.selectedList = self.listArray?[indexPath.row]
-            self.performSegue(withIdentifier: Constant.Segue.newList, sender: self)
+            self.performSegue(withIdentifier: NewListController.identifier, sender: self)
             
             completionHandler(true)
         }
@@ -165,6 +165,5 @@ extension ListController: NewListDelegate {
     func fetchFreshData() {
         loadList()
     }
-
 }
 
