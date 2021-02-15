@@ -27,7 +27,7 @@ class ItemsController: UIViewController {
         navigationBar.isHidden = customNavigation.show
         navigationBar.topItem?.title = customNavigation.title
         
-        addButton.isHidden = customNavigation.show
+        addButton.isHidden = !customNavigation.show
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -151,6 +151,7 @@ extension ItemsController: UITableViewDelegate, UITableViewDataSource {
                     print("❌ Error delete list index \(error)")
                 }
             }
+            self.itemArray?.remove(at: indexPath.row)
             self.tableView.reloadData()
             completionHandler(true)
         }
@@ -165,7 +166,9 @@ extension ItemsController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         selectedItem = itemArray?[indexPath.row]
-        currentCategory = itemArray?[indexPath.row].parentCategory[0]
+        if currentCategory == nil {
+            currentCategory = itemArray?[indexPath.row].parentCategory[0]
+        }
         performSegue(withIdentifier: NewItemController.identifier, sender: self)
     }
     
@@ -183,6 +186,7 @@ extension ItemsController {
             if let safeCategory = category {
                 itemArray = safeCategory.items.sorted(byKeyPath: "done", ascending: true).toArray()
                 self.title = category?.name
+                currentCategory = category
             }
         } else {
             customNavigation = (show: false, title: itemType.rawValue)
@@ -213,8 +217,8 @@ extension ItemsController {
 // MARK: - NewItemDelegate
 
 extension ItemsController: NewItemDelegate {
-    func fetchFreshList() {
-        loadItems(itemType: .category)
+    func fetchFreshList(type: Constant.TypeOfItems, category: Category?) {
+        loadItems(itemType: type, category: category)
     }
 }
 

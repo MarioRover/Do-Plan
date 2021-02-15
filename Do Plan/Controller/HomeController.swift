@@ -9,7 +9,7 @@ import UIKit
 import RealmSwift
 
 class HomeController: UIViewController, NewItemDelegate {
-    func fetchFreshList() {
+    func fetchFreshList(type: Constant.TypeOfItems, category: Category?) {
         searchItems()
     }
     
@@ -96,16 +96,16 @@ class HomeController: UIViewController, NewItemDelegate {
 
 extension HomeController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        showHomeView(false)
+        showHomeView(false, clearInput: false)
     }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        showHomeView(true)
-    }
-    
+        
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        showHomeView(true)
+        showHomeView(true, clearInput: true)
         self.view.endEditing(true)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -113,12 +113,13 @@ extension HomeController: UISearchBarDelegate {
         searchItems()
     }
     
-    private func showHomeView(_ isShow: Bool) {
+    private func showHomeView(_ isShow: Bool, clearInput: Bool) {
+        print(isShow)
         searchBar.setShowsCancelButton(!isShow, animated: true)
         homeView.isHidden   = !isShow
         resultView.isHidden = isShow
         itemArray = []
-        searchBar.text = ""
+        if clearInput { searchBar.text = "" }
         tableView.reloadData()
     }
     

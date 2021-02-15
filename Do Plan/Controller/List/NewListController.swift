@@ -41,7 +41,14 @@ class NewListController: UIViewController {
     }
     
     @IBAction func donePressed(_ sender: UIButton) {
-                
+        saveNewList()
+    }
+    
+    @IBAction func cancelPressed(_ sender: UIButton) {
+        closePage()
+    }
+    
+    private func saveNewList() {
         if let text = textField.text, !text.isEmpty {
             if selectedList != nil {
                 do {
@@ -60,13 +67,9 @@ class NewListController: UIViewController {
             }
 
         }
-
-    }
-    @IBAction func cancelPressed(_ sender: UIButton) {
-        closePage()
     }
         
-    func closePage() {
+    private func closePage() {
         dismiss(animated: true, completion: nil)
     }
 
@@ -101,6 +104,11 @@ extension NewListController: UITextFieldDelegate {
         guard let stringRange = Range(range, in: currentText) else { return false }
         let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
         return updatedText.count <= 30
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        saveNewList()
+        return true
     }
 }
 

@@ -9,7 +9,7 @@ import UIKit
 import RealmSwift
 
 protocol NewItemDelegate: class {
-    func fetchFreshList()
+    func fetchFreshList(type: Constant.TypeOfItems, category: Category?)
 }
 
 enum dateType {
@@ -203,7 +203,7 @@ class NewItemController: MyUIViewController {
                 }
             }
             
-            delegate?.fetchFreshList()
+            delegate?.fetchFreshList(type: .category, category: currentCategory)
             closePage()
         }
 
@@ -223,6 +223,10 @@ extension NewItemController: UITextFieldDelegate {
         guard let stringRange = Range(range, in: currentText) else { return false }
         let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
         return updatedText.count <= 40
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
     }
 
 }
